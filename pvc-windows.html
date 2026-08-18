@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Металопластикові вікна — ВІКНА-ОБРІЙ</title>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/colors.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/typography.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/radius.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/base.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/styles.css">
+<script src="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/_ds_bundle.js"></script>
+<script src="assets/js/image-slot.js"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.pw-hero{position:relative;padding:56px 48px 72px;background:var(--white)}
+.pw-hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;gap:0}
+.pw-crumbs{max-width:1280px;margin:0 auto 24px}
+.pw-photo{position:relative;aspect-ratio:4/4.6;background:var(--color-plate,#F1F1F1);overflow:hidden}
+.pw-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.pw-txt{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:0}
+.crumbs{display:flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:13px;color:var(--color-text-tertiary)}
+.crumbs a{color:var(--color-text-secondary);text-decoration:none;transition:color .15s ease}
+.crumbs a:hover{color:var(--color-primary)}
+.crumbs span{color:var(--color-text-tertiary)}
+.pw-plate{background:var(--white);padding:38px 44px 34px;margin-left:-132px;border:1px solid var(--color-border)}
+.pw-plate h1{font-family:var(--font-sans);font-weight:700;font-size:clamp(28px,3.1vw,46px);line-height:1.1;letter-spacing:-.025em;color:var(--color-text);margin:0}
+.pw-plate h1 em{font-style:normal;color:var(--color-primary)}
+.pw-lede{font-family:var(--font-sans);font-size:15.5px;line-height:1.65;color:var(--color-text-secondary);margin:0;padding-left:56px;max-width:46ch;text-wrap:pretty}
+.pw-acts{display:flex;flex-wrap:wrap;gap:12px;padding-left:56px}
+.pw-diia{position:absolute;left:56px;bottom:0;display:inline-flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;border:1px solid var(--color-border);background:transparent}
+.pw-diia img{width:38px;height:38px;display:block;flex-shrink:0}
+.pw-diia span{font-family:var(--font-sans);font-size:14.5px;font-weight:600;line-height:1.35;color:var(--color-text);text-wrap:pretty}
+.pw-sec{padding:80px 48px;background:var(--white)}
+.pw-sec.plate{background:var(--color-bg-subtle,#F5F6F8)}
+.pw-inner{max-width:1280px;margin:0 auto}
+.pw-eyebrow{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-primary);margin:0 0 12px}
+.pw-h2{font-family:var(--font-sans);font-weight:700;font-size:clamp(24px,2.4vw,34px);line-height:1.15;letter-spacing:-.02em;color:var(--color-text);margin:0 0 38px;text-wrap:pretty}
+.pw-benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pw-benefit{background:var(--color-plate,#F1F1F1);padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;min-height:200px}
+.pw-benefit .ico{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--color-primary)}
+.pw-benefit b{font-family:var(--font-sans);font-size:16.5px;font-weight:700;line-height:1.3;color:var(--color-text)}
+.pw-benefit span{font-family:var(--font-sans);font-size:14px;line-height:1.6;color:var(--color-text-secondary);margin-top:auto}
+.pw-split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.pw-incl{display:flex;flex-direction:column}
+.pw-incl-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--color-border)}
+.pw-incl-row:first-child{border-top:1px solid var(--color-border)}
+.pw-incl-row svg{flex-shrink:0;margin-top:2px}
+.pw-incl-row b{display:block;font-family:var(--font-sans);font-size:15.5px;font-weight:700;color:var(--color-text);line-height:1.35}
+.pw-incl-row span{display:block;font-family:var(--font-sans);font-size:14px;line-height:1.6;color:var(--color-text-secondary);margin-top:4px}
+.pw-spec{background:var(--white);border:1px solid var(--color-border)}
+.pw-spec-head{padding:18px 24px;background:var(--color-ink,#111827);color:#fff;font-family:var(--font-sans);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+.pw-spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:15px 24px;border-bottom:1px solid var(--color-border)}
+.pw-spec-row:last-child{border-bottom:0}
+.pw-spec-row span{font-family:var(--font-sans);font-size:14.5px;color:var(--color-text-secondary)}
+.pw-spec-row b{font-family:ui-monospace,monospace;font-size:14.5px;font-weight:600;color:var(--color-text);text-align:right}
+.pw-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pw-shot{position:relative;aspect-ratio:4/3;background:var(--color-plate,#F1F1F1);overflow:hidden}
+.pw-shot:first-child{grid-column:span 2;aspect-ratio:8/3.05}
+.pw-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.pw-shot:hover img{transform:scale(1.03)}
+.pw-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pw-step{border-top:2px solid var(--color-primary);padding:18px 0 0}
+.pw-step em{font-style:normal;font-family:ui-monospace,monospace;font-size:13px;color:var(--color-primary);letter-spacing:.06em}
+.pw-step p{font-family:var(--font-sans);font-size:15px;line-height:1.55;color:var(--color-text);margin:10px 0 0;text-wrap:pretty}
+.pw-cta{background:var(--color-ink,#111827);padding:80px 48px}
+.pw-cta-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.pw-cta h2{font-family:var(--font-sans);font-weight:700;font-size:clamp(24px,2.5vw,36px);line-height:1.15;letter-spacing:-.02em;color:#fff;margin:0 0 16px;text-wrap:pretty}
+.pw-cta p{font-family:var(--font-sans);font-size:15.5px;line-height:1.65;color:rgba(255,255,255,.62);margin:0;max-width:46ch}
+.pw-cta-phones{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.pw-cta-phones a{font-family:var(--font-sans);font-size:20px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:-.01em}
+.pw-cta-phones a:hover{color:#fff;opacity:.7}
+.pw-form{background:var(--white);padding:8px}
+.ps{padding:80px 48px;background:var(--white);border-top:1px solid var(--color-border)}
+.ps-inner{max-width:1280px;margin:0 auto}
+.ps-brands{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--color-border);background:var(--color-bg-subtle,#F5F6F8);margin-bottom:0}
+.ps-brand{position:relative;font-family:var(--font-sans);font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-secondary);background:transparent;border:0;border-right:1px solid var(--color-border);padding:22px 20px;cursor:pointer;transition:color .15s ease,background .15s ease;min-height:64px}
+.ps-brand:last-child{border-right:0}
+.ps-brand:hover{color:var(--color-text)}
+.ps-brand.on{background:var(--white);color:var(--color-primary)}
+.ps-brand.on::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--color-primary)}
+.ps-series{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--color-border);border-top:0;background:var(--white)}
+.ps-serie{font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--color-text-tertiary);background:transparent;border:0;border-right:1px solid var(--color-border);padding:16px 22px;cursor:pointer;transition:color .15s ease,background .15s ease}
+.ps-serie:hover{color:var(--color-text)}
+.ps-serie.on{color:var(--color-text);background:var(--color-plate,#F1F1F1)}
+.ps-panel{border:1px solid var(--color-border);border-top:0;background:var(--white)}
+.ps-top{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr) minmax(0,.9fr);gap:0}
+.ps-cut{padding:32px;border-right:1px solid var(--color-border);display:flex;align-items:center;justify-content:center;background:var(--color-bg-subtle,#F5F6F8)}
+.ps-cut image-slot,.ps-cut .photo-pending{width:100%;aspect-ratio:1/1;height:auto}
+.ps-col{padding:32px 30px;border-right:1px solid var(--color-border);min-width:0}
+.ps-col:last-child{border-right:0}
+.ps-col-title{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-primary);margin:0 0 22px}
+.ps-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:11px 0;border-bottom:1px solid var(--color-border)}
+.ps-row:last-child{border-bottom:0}
+.ps-row span{font-family:var(--font-sans);font-size:14px;line-height:1.4;color:var(--color-text-secondary)}
+.ps-row b{font-family:ui-monospace,monospace;font-size:14px;font-weight:600;color:var(--color-text);text-align:right;white-space:nowrap}
+.ps-meter{margin-bottom:26px}
+.ps-meter:last-child{margin-bottom:0}
+.ps-meter-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:9px}
+.ps-meter-top span{font-family:var(--font-sans);font-size:14px;color:var(--color-text-secondary)}
+.ps-meter-top b{font-family:ui-monospace,monospace;font-size:14px;font-weight:700;color:var(--color-primary)}
+.ps-bar{height:6px;background:var(--color-plate-strong,#E6E7E8)}
+.ps-bar i{display:block;height:100%;background:var(--color-primary);transition:width .35s cubic-bezier(.2,.7,.3,1)}
+.ps-desc{padding:28px 30px;border-top:1px solid var(--color-border)}
+.ps-desc h4{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-tertiary);margin:0 0 12px}
+.ps-desc p{font-family:var(--font-sans);font-size:15px;line-height:1.65;color:var(--color-text-secondary);margin:0;max-width:104ch;text-wrap:pretty}
+.ps-foot{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;padding:26px 30px;border-top:1px solid var(--color-border);background:var(--color-bg-subtle,#F5F6F8)}
+.ps-price em{display:block;font-style:normal;font-family:var(--font-sans);font-size:13px;color:var(--color-text-tertiary);margin-bottom:6px}
+.ps-price b{font-family:var(--font-sans);font-size:34px;font-weight:700;letter-spacing:-.02em;color:var(--color-text)}
+.ps-price b i{font-style:normal;font-size:16px;font-weight:600;color:var(--color-text-secondary);margin-left:6px}
+.ps-foot-acts{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ps-foot-acts button svg{transition:transform .2s ease}
+.pp{padding:72px 0 84px;background:var(--white);border-top:1px solid var(--color-border);overflow:hidden}
+.pp h2{font-family:var(--font-sans);font-weight:700;font-size:clamp(22px,2.2vw,30px);line-height:1.15;letter-spacing:-.02em;color:var(--color-text);margin:0 0 40px;text-align:center;padding:0 24px}
+.pp-strip{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pp-track{display:flex;align-items:center;gap:0;width:max-content;animation:pp-scroll 38s linear infinite}
+.pp-strip:hover .pp-track{animation-play-state:paused}
+.pp-item{flex:0 0 auto;width:230px;height:96px;display:flex;align-items:center;justify-content:center;padding:0 28px;border-right:1px solid var(--color-border)}
+.pp-item img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;display:block;filter:grayscale(1);opacity:.62;transition:filter .2s ease,opacity .2s ease}
+.pp-item:hover img{filter:none;opacity:1}
+@keyframes pp-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.pp-track{animation:none}}
+.ps-foot-acts button:hover svg{transform:translateX(5px)}
+.ps-pay{order:2;position:relative;cursor:default}
+.ps-tip{position:absolute;bottom:calc(100% + 10px);right:0;width:340px;max-width:min(340px,calc(100vw - 48px));background:var(--white);border:1px solid var(--color-border);padding:18px 20px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .15s ease,transform .15s ease,visibility .15s;z-index:5;text-align:left}
+.ps-pay:hover .ps-tip,.ps-pay:focus-within .ps-tip{opacity:1;visibility:visible;transform:translateY(0)}
+.ps-tip b{display:block;font-family:var(--font-sans);font-size:13.5px;font-weight:700;color:var(--color-primary);margin-bottom:5px}
+.ps-tip p{font-family:var(--font-sans);font-size:13px;line-height:1.55;color:var(--color-text-secondary);margin:0 0 14px;text-wrap:pretty;hyphens:none}
+.ps-tip p:last-child{margin-bottom:0}
+.ps-pay{display:flex;align-items:center;gap:12px;padding:10px 16px 10px 12px;background:var(--white);border:1px solid var(--color-border)}
+.ps-pay img{height:52px;width:auto;display:block;flex-shrink:0}
+.ps-pay span{display:block;font-family:var(--font-sans);font-size:13px;font-weight:600;line-height:1.3;color:var(--color-text)}
+.ps-pay em{display:block;font-style:normal;font-family:var(--font-sans);font-size:11.5px;line-height:1.3;color:var(--color-text-tertiary);margin-top:2px}
+@media (max-width:1080px){
+.ps-top{grid-template-columns:1fr 1fr}
+.ps-cut{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--color-border);padding:26px}
+.ps-cut image-slot,.ps-cut .photo-pending{max-width:360px}
+}
+@media (max-width:1080px){
+.pw-benefits{grid-template-columns:repeat(2,1fr)}
+.pw-steps{grid-template-columns:repeat(2,1fr)}
+.pw-plate{margin-left:-80px;padding:30px 32px}
+}
+@media (max-width:900px){
+.pw-hero{padding:28px 24px 56px}.pw-hero-inner{grid-template-columns:1fr;gap:0}
+.pw-photo{aspect-ratio:4/3}
+.pw-txt{padding:0;gap:22px}
+.pw-plate{margin:-56px 0 0;padding:26px 24px;position:relative;width:100%}
+.crumbs{padding:0}
+.pw-lede,.pw-acts{padding-left:0}
+.pw-diia{position:static;margin:0;width:100%}
+.pw-txt{justify-content:flex-start;gap:22px}
+.pw-sec,.pw-cta{padding:56px 24px}
+.pw-split{grid-template-columns:1fr;gap:36px}
+.pw-gallery{grid-template-columns:1fr 1fr}
+.pw-shot:first-child{grid-column:span 2;aspect-ratio:16/9}
+.pw-cta-inner{grid-template-columns:1fr;gap:34px}
+.ps{padding:56px 24px}
+.ps-brands{grid-template-columns:1fr}
+.ps-brand{border-right:0;border-bottom:1px solid var(--color-border);text-align:left;min-height:56px;padding:16px 18px}
+.ps-brand:last-child{border-bottom:0}
+.ps-brand.on::after{left:0;top:0;bottom:0;right:auto;width:3px;height:auto}
+.ps-series{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
+.ps-serie{white-space:nowrap;padding:14px 18px}
+.ps-top{grid-template-columns:1fr}
+.ps-col{border-right:0;border-bottom:1px solid var(--color-border);padding:26px 22px}
+.ps-col:last-child{border-bottom:0}
+.ps-desc,.ps-foot{padding:24px 22px}
+.ps-foot{flex-direction:column;align-items:stretch;gap:18px}
+.ps-foot-acts{flex-direction:column;align-items:stretch;gap:14px}
+.ps-pay{justify-content:flex-start}
+.pp{padding:52px 0 60px}
+.pp h2{margin-bottom:28px}
+.pp-item{width:172px;height:82px;padding:0 22px}
+.pp-item img{max-height:44px}
+.ps-tip{right:auto;left:0;width:100%;max-width:none}
+.ps-pay img{height:46px}
+.ps-foot-acts button{width:100%}
+}
+@media (max-width:560px){
+.pw-benefits{grid-template-columns:1fr}
+.pw-steps{grid-template-columns:1fr}
+.pw-gallery{grid-template-columns:1fr}
+.pw-shot:first-child{grid-column:span 1}
+.pw-plate{margin-top:-40px;width:100%}
+.ps-price b{font-size:29px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react" src="assets/js/shell.jsx"></script>
+<script type="text/babel" data-presets="react">
+function px(id,w){ return 'https://images.pexels.com/photos/'+id+'/pexels-photo-'+id+'.jpeg?auto=compress&cs=tinysrgb&w='+(w||1200); }
+const check = React.createElement('svg',{width:18,height:18,viewBox:'0 0 24 24',fill:'none'},
+  React.createElement('path',{d:'M4 12.6l5.2 5.2L20 7',stroke:'var(--color-primary)',strokeWidth:2.4,strokeLinecap:'square'})
+);
+
+function PwHero(){
+  return React.createElement('section',{className:'pw-hero',id:'product-hero','data-screen-label':'Хіро послуги'},
+    React.createElement('div',{className:'pw-crumbs'},
+      React.createElement('nav',{className:'crumbs'},
+        React.createElement('a',{href:'index.html'},'Головна'),
+        React.createElement('span',null,'/'),
+        React.createElement('span',null,'Металопластикові вікна')
+      )
+    ),
+    React.createElement('div',{className:'pw-hero-inner'},
+      React.createElement('div',{className:'pw-photo'},
+        React.createElement('img',{src:'assets/images/pvc-windows-living-room.webp',alt:'Металопластикові вікна у вітальні',loading:'eager'})
+      ),
+      React.createElement('div',{className:'pw-txt'},
+        React.createElement('div',{className:'pw-plate'},
+          React.createElement('h1',null,'Металопластикові вікна в Харкові ',React.createElement('em',null,'від виробника ЕКІПАЖ'))
+        ),
+        React.createElement('p',{className:'pw-lede'},'Виготовляємо вікна на власному виробництві — від зварювання профілю до монтажу на об’єкті. Профільні системи VEKA, WDS та ЕКІПАЖ, фурнітура AXOR і Winkhaus. Підбираємо рішення під ваш бюджет: від економ- до преміум-класу.'),
+        React.createElement('div',{className:'pw-diia'},
+          React.createElement('img',{src:'assets/images/diia-logo.webp',alt:'Дія',loading:'lazy'}),
+          React.createElement('span',null,'Працюємо за програмою єВідновлення')
+        )
+      )
+    )
+  );
+}
+
+function PwBenefits(){
+  const items = [
+    {icon:'window',title:'5–7 камер у профілі',desc:'Тримають тепло взимку та не пропускають вуличний шум і пил'},
+    {icon:'shield-check',title:'Гарантія 5 років',desc:'На конструкцію, фурнітуру та монтажні роботи — за договором'},
+    {icon:'clock',title:'Виготовлення 5–7 днів',desc:'Дату монтажу фіксуємо в договорі і тримаємо її'},
+    {icon:'truck',title:'Доставка безкоштовно',desc:'Привеземо конструкції на об’єкт без доплат за логістику'}
+  ];
+  return React.createElement('section',{className:'pw-sec plate','data-screen-label':'Переваги'},
+    React.createElement('div',{className:'pw-inner'},
+      React.createElement('p',{className:'pw-eyebrow'},'Чому наші вікна'),
+      React.createElement('h2',{className:'pw-h2'},'Кожне вікно робимо під розмір вашого проєму'),
+      React.createElement('div',{className:'pw-benefits'},
+        items.map(b=>React.createElement('div',{className:'pw-benefit',key:b.title},
+          React.createElement('div',{className:'ico'}, React.createElement(Icon,{name:b.icon,size:22,color:'#fff'})),
+          React.createElement('b',null,b.title),
+          React.createElement('span',null,b.desc)
+        ))
+      )
+    )
+  );
+}
+
+function PwSpecs(){
+  const incl = [
+    {t:'Профіль з армуванням',d:'Сталеве армування по всьому периметру рами та стулки — конструкція не провисає'},
+    {t:'Енергозберігаючий склопакет',d:'Двокамерний склопакет 4-16-4-16-4i з i-склом та аргоном у камерах'},
+    {t:'Фурнітура AXOR або Winkhaus',d:'Багатоточкове запирання, мікроліфт, регулювання притиску по сезону'},
+    {t:'Монтаж і відкоси',d:'Демонтаж старого вікна, установка за ДСТУ, підвіконня, відкоси та герметизація'}
+  ];
+  const spec = [
+    ['Монтажна глибина','70–82 мм'],
+    ['Кількість камер','5–7'],
+    ['Опір теплопередачі','до 0,95 W/m²K'],
+    ['Склопакет','4-16-4-16-4i'],
+    ['Шумоізоляція','до 34 дБ'],
+    ['Клас фурнітури','AXOR / Winkhaus'],
+    ['Гарантія','5 років']
+  ];
+  return React.createElement('section',{className:'pw-sec','data-screen-label':'Специфікація'},
+    React.createElement('div',{className:'pw-inner'},
+      React.createElement('p',{className:'pw-eyebrow'},'Комплектація'),
+      React.createElement('h2',{className:'pw-h2'},'Що входить у вікно і його характеристики'),
+      React.createElement('div',{className:'pw-split'},
+        React.createElement('div',{className:'pw-incl'},
+          incl.map(i=>React.createElement('div',{className:'pw-incl-row',key:i.t},
+            check,
+            React.createElement('div',null,
+              React.createElement('b',null,i.t),
+              React.createElement('span',null,i.d)
+            )
+          ))
+        ),
+        React.createElement('div',{className:'pw-spec'},
+          React.createElement('div',{className:'pw-spec-head'},'Технічні дані'),
+          spec.map(([k,v])=>React.createElement('div',{className:'pw-spec-row',key:k},
+            React.createElement('span',null,k),
+            React.createElement('b',null,v)
+          ))
+        )
+      )
+    )
+  );
+}
+
+function PwGallery(){
+  const shots = [
+    {id:'7061662',alt:'Панорамне вікно у вітальні'},
+    {id:'323705',alt:'Склопакет крупним планом'},
+    {id:'6474471',alt:'Відкоси після монтажу'},
+    {id:'1743227',alt:'Вікно з рулонною шторою'},
+    {id:'279607',alt:'Балконні двері'}
+  ];
+  return React.createElement('section',{className:'pw-sec plate','data-screen-label':'Галерея'},
+    React.createElement('div',{className:'pw-inner'},
+      React.createElement('p',{className:'pw-eyebrow'},'Наші роботи'),
+      React.createElement('h2',{className:'pw-h2'},'Встановлені вікна на об’єктах у Харкові та області'),
+      React.createElement('div',{className:'pw-gallery'},
+        shots.map(s=>React.createElement('div',{className:'pw-shot',key:s.id},
+          React.createElement('img',{src:px(s.id,1200),alt:s.alt,loading:'lazy'})
+        ))
+      )
+    )
+  );
+}
+
+function PwSteps(){
+  const steps = [
+    'Залишаєте заявку — менеджер виїжджає на об’єкт',
+    'Робимо заміри та прораховуємо вартість на місці',
+    'Складаємо договір з мокрою печаткою і фіксуємо дату',
+    'Виготовляємо, привозимо та монтуємо за 5–7 днів'
+  ];
+  return React.createElement('section',{className:'pw-sec','data-screen-label':'Як працюємо'},
+    React.createElement('div',{className:'pw-inner'},
+      React.createElement('p',{className:'pw-eyebrow'},'Порядок роботи'),
+      React.createElement('h2',{className:'pw-h2'},'Від заявки до встановленого вікна — чотири кроки'),
+      React.createElement('div',{className:'pw-steps'},
+        steps.map((s,i)=>React.createElement('div',{className:'pw-step',key:i},
+          React.createElement('em',null,'0'+(i+1)),
+          React.createElement('p',null,s)
+        ))
+      )
+    )
+  );
+}
+
+function PwCta(){
+  return React.createElement('section',{className:'pw-cta','data-screen-label':'Заявка'},
+    React.createElement('div',{className:'pw-cta-inner'},
+      React.createElement('div',null,
+        React.createElement('h2',null,'Розрахуємо вартість ваших вікон'),
+        React.createElement('p',null,'Заповніть форму — за номером уточнимо розміри, кількість стулок і дату заміру. Прорахунок безкоштовний.'),
+        React.createElement('div',{className:'pw-cta-phones'},
+          PHONES.map(p=>React.createElement('a',{key:p,href:'tel:+38'+p.replace(/\s/g,'')},p))
+        )
+      ),
+      React.createElement('div',{className:'pw-form'},
+        React.createElement(QuoteForm,{heading:'Заявка на прорахунок',lede:'Займе менше хвилини. Усі поля обов’язкові',cta:'Відправити заявку'})
+      )
+    )
+  );
+}
+
+const PROFILES = [
+  {brand:'VEKA',series:[
+    {name:'VEKA 70',system:'Veka Softline 70',depth:'70 мм',cams:'5',glass:'24, 40 мм',steel:'1,5 мм',seal:'Чорний',segment:'Комфорт +',energy:78,noise:44,safety:50,price:'4 887',
+     desc:'VEKA 70 — сучасна профільна система з монтажною шириною 70 мм, яка поєднує енергоефективність, надійність і комфорт у повсякденному використанні. Це 5-камерний профіль із 2 контурами уплотнення, що допомагає краще зберігати тепло та знижувати рівень зовнішнього шуму. Система передбачає встановлення склопакетів 24 і 40 мм, тому підходить для різних типів вікон і дверей. Оптимальний варіант для житлових і комерційних об’єктів.'},
+    {name:'VEKA 82',system:'Veka Softline 82',depth:'82 мм',cams:'7/6',glass:'44, 52 мм',steel:'1,5 мм',seal:'Чорний',segment:'Преміум',energy:88,noise:54,safety:60,price:'7 310',
+     desc:'VEKA 82 — це преміальна профільна система з монтажною шириною 82 мм для енергоефективного скління. Це 7/6-камерний профіль із 3 контурами уплотнення, який забезпечує високі тепло- та шумоізоляційні властивості. Система дозволяє встановлювати склопакети товщиною 44 і 52 мм, тому підходить для виготовлення теплих вікон і дверей.'}
+  ]},
+  {brand:'EKIPAZH',series:[
+    {name:'ULTRA 60',system:'EKIPAZH ULTRA 60',depth:'60 мм',cams:'3',glass:'32 мм',steel:'1,5 мм',seal:'Сірий',segment:'Бюджет',energy:67,noise:42,safety:30,price:'3 299',
+     desc:'3-камерна бюджетна профільна система, здатна забезпечити базову тепло- та звукоізоляцію. Конструкції із системи EKIPAZH Ultra 60 підходять для встановлення в приміщеннях, де немає високих вимог до теплоізоляції.'},
+    {name:'ULTRA 72',system:'EKIPAZH Ultra 72',depth:'72 мм',cams:'5',glass:'24, 32, 44 мм',steel:'1,5 мм',seal:'Чорний',segment:'Комфорт',energy:78,noise:48,safety:40,price:'4 189',
+     desc:'EKIPAZH Ultra 72 — оновлена 5-камерна профільна система на базі WHS 72 by VEKA з монтажною шириною 72 мм і можливістю встановлення склопакета 24, 32 або 44 мм. Вона підходить для виготовлення вікон і дверей, забезпечує хорошу теплоізоляцію, надійність конструкції та стабільну роботу фурнітури.'}
+  ]},
+  {brand:'WDS',series:[
+    {name:'WDS AD 76',system:'WDS AD 76',depth:'76 мм',cams:'5',glass:'40 мм',steel:'1,2–1,5 мм',seal:'Сірий',segment:'Стандарт +',energy:90,noise:58,safety:65,price:'4 736',
+     desc:'Віконні конструкції з профілю WDS 76 AD оснащені енергозберігаючим склопакетом товщиною 40 мм, міцним армуванням для конструкцій великих розмірів і 5-камерним профілем для оптимальної теплоізоляції. Вони доступні в асортименті з 40 варіантів кольору ламінації.'},
+    {name:'WDS MD 76',system:'WDS MD 76',depth:'76 мм',cams:'6',glass:'48 мм',steel:'1,2–1,5 мм',seal:'Сірий',segment:'Комфорт',energy:99,noise:48,safety:40,price:'5 014',
+     desc:'Віконні конструкції з профілю WDS 76 MD оснащені широким енергозберігаючим склопакетом товщиною 48 мм, міцним армуванням для конструкцій великих розмірів і 6-камерним профілем для оптимальної теплоізоляції. Вони доступні в асортименті з 40 варіантів кольору ламінації.'}
+  ]}
+];
+
+function PwProfiles(){
+  const [b,setB] = React.useState(0);
+  const [s,setS] = React.useState(0);
+  const brand = PROFILES[b];
+  const item = brand.series[Math.min(s,brand.series.length-1)];
+  const specs = [['Профільна система',item.system||item.name],['Монтажна глибина',item.depth],['Камер у профілі',item.cams],['Макс. склопакет',item.glass],['Метал. підсилення',item.steel],['Колір ущільнювача',item.seal],['Сегмент',item.segment]];
+  const meters = [['Енергозбереження',item.energy],['Шумоізоляція',item.noise],['Безпека',item.safety]];
+  const slotId = 'cut-'+item.name.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+  return React.createElement('section',{className:'ps',id:'profile-systems','data-screen-label':'Вибір профілю'},
+    React.createElement('div',{className:'ps-inner'},
+      React.createElement('p',{className:'pw-eyebrow'},'Профільні системи'),
+      React.createElement('h2',{className:'pw-h2'},'Асортимент'),
+      React.createElement('div',{className:'ps-brands',role:'tablist'},
+        PROFILES.map((p,i)=>React.createElement('button',{type:'button',key:p.brand,role:'tab','aria-selected':i===b,className:'ps-brand'+(i===b?' on':''),onClick:()=>{setB(i);setS(0);}},p.brand))
+      ),
+      React.createElement('div',{className:'ps-series',role:'tablist'},
+        brand.series.map((x,i)=>React.createElement('button',{type:'button',key:x.name,role:'tab','aria-selected':i===s,className:'ps-serie'+(i===Math.min(s,brand.series.length-1)?' on':''),onClick:()=>setS(i)},x.name))
+      ),
+      React.createElement('div',{className:'ps-panel'},
+        React.createElement('div',{className:'ps-top'},
+          React.createElement('div',{className:'ps-cut'},
+            React.createElement(Photo,{id:slotId,key:slotId,placeholder:'Розріз профілю '+item.name,shape:'rect'})
+          ),
+          React.createElement('div',{className:'ps-col'},
+            React.createElement('p',{className:'ps-col-title'},'Характеристики профілю'),
+            specs.map(([k,v])=>React.createElement('div',{className:'ps-row',key:k},
+              React.createElement('span',null,k),
+              React.createElement('b',null,v)
+            ))
+          ),
+          React.createElement('div',{className:'ps-col'},
+            React.createElement('p',{className:'ps-col-title'},'Властивості'),
+            meters.map(([k,v])=>React.createElement('div',{className:'ps-meter',key:k},
+              React.createElement('div',{className:'ps-meter-top'},
+                React.createElement('span',null,k),
+                React.createElement('b',null,v+'%')
+              ),
+              React.createElement('div',{className:'ps-bar'}, React.createElement('i',{style:{width:v+'%'}}))
+            ))
+          )
+        ),
+        React.createElement('div',{className:'ps-desc'},
+          React.createElement('h4',null,'Опис профільної системи'),
+          React.createElement('p',null,item.desc)
+        ),
+        React.createElement('div',{className:'ps-foot'},
+          React.createElement('div',{className:'ps-price'},
+            React.createElement('em',null,'Ціна за 1 м² для двостулкового вікна'),
+            React.createElement('b',null,item.price,React.createElement('i',null,'грн'))
+          ),
+          React.createElement('div',{className:'ps-foot-acts'},
+            React.createElement('div',{className:'ps-pay',tabIndex:0},
+              React.createElement('img',{src:'assets/images/privatbank-installments-badge.png',alt:'ПриватБанк — оплата частинами',loading:'lazy'}),
+              React.createElement('div',null,
+                React.createElement('span',null,'Оплата частинами',React.createElement('br'),'та розстрочка'),
+                React.createElement('em',null,'від ПриватБанку')
+              ),
+              React.createElement('div',{className:'ps-tip',role:'tooltip'},
+                React.createElement('b',null,'Оплата частинами'),
+                React.createElement('p',null,'Від ПриватБанку, за наявності картки «Універсальна», оформлюється на строк до 6 місяців'),
+                React.createElement('b',null,'Розстрочка'),
+                React.createElement('p',null,'До 10 місяців без комісії, потрібні лише паспорт і код, вік 21–69 років, сума до 100 000 грн, можливе дострокове погашення')
+              )
+            ),
+            React.createElement(Button,{variant:'primary',size:'lg',icon:'arrow-right',iconPosition:'right',onClick:openQuote},'Замовити зараз')
+          )
+        )
+      )
+    )
+  );
+}
+
+function PwPartners(){
+  const logos = [
+    {src:'assets/images/ekipazh-logo.svg',alt:'ЕКІПАЖ',h:52},
+    {src:'assets/images/partner-veka-logo.webp',alt:'VEKA',h:48},
+    {src:'assets/images/partner-miroplast-logo.png',alt:'Miroplast',h:40},
+    {src:'assets/images/partner-guardian-industries-logo.png',alt:'Guardian Industries',h:42},
+    {src:'assets/images/partner-procural-logo.webp',alt:'Procural aluminium systems',h:40}
+  ];
+  const row = (k)=>logos.map((l,i)=>React.createElement('div',{className:'pp-item',key:k+i},
+    React.createElement('img',{src:l.src,alt:l.alt,loading:'lazy',style:{maxHeight:l.h+'px'}})
+  ));
+  return React.createElement('section',{className:'pp',id:'partners-section','data-screen-label':'Партнери'},
+    React.createElement('h2',null,'Наші партнери'),
+    React.createElement('div',{className:'pp-strip'},
+      React.createElement('div',{className:'pp-track','aria-hidden':false}, row('a'), row('b'))
+    )
+  );
+}
+
+function App(){
+  return React.createElement(React.Fragment,null,
+    React.createElement(Header),
+    React.createElement(PwHero),
+    React.createElement(PwProfiles),
+    React.createElement(PwPartners),
+    React.createElement(Certificates),
+    React.createElement(MapBlock),
+    React.createElement(Footer),
+    React.createElement(QuoteModal)
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>ВІКНА-ОБРІЙ — металопластикові вікна, двері та жалюзі в Харкові</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Виробництво та монтаж металопластикових і алюмінієвих вікон, дверей, склопакетів, відкосів, жалюзі та рулонних штор у Харкові. Працюємо за програмою єВідновлення.">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/colors.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/typography.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/radius.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/base.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/styles.css">
+<script src="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/_ds_bundle.js"></script>
+<script src="assets/js/image-slot.js"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react" src="assets/js/shell.jsx"></script>
+<script type="text/babel" data-presets="react">
+function Hero(){
+  return React.createElement('section',{className:'hero',id:'hero-section','data-screen-label':'Хіро'},
+    React.createElement('video',{className:'hero-video',autoPlay:true,loop:true,muted:true,playsInline:true,preload:'auto'},
+      React.createElement('source',{src:'assets/video/hero-window-installation.mp4',type:'video/mp4'})
+    ),
+    React.createElement('div',{className:'hero-overlay'}),
+    React.createElement('div',{className:'hero-inner'},
+      React.createElement('h1',null,'Металопластикові та алюмінієві вікна і двері від виробника ЕКІПАЖ'),
+      React.createElement('p',{className:'sub1'},'Виробництво та монтаж вікон і дверей.', React.createElement('br'), 'Працюємо за програмою єВідновлення'),
+      React.createElement('p',{className:'sub2'},'Забронюйте безкоштовний прорахунок вартості та отримайте найкращі умови протягом 24 годин'),
+      React.createElement('div',{className:'hero-cta'},
+        React.createElement(Button,{variant:'primary',size:'lg',icon:'arrow-right',iconPosition:'right',onClick:openQuote},'Прорахувати вартість')
+      )
+    )
+  );
+}
+
+function WhyUs(){
+  const ref = React.useRef(null);
+  const [visible,setVisible] = React.useState(false);
+  React.useEffect(()=>{
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ setVisible(true); obs.disconnect(); } });
+    },{threshold:0.2});
+    if(ref.current) obs.observe(ref.current);
+    return ()=>obs.disconnect();
+  },[]);
+  const items = [
+    {icon:'flag',title:'20+ років досвіду в Україні',desc:'Перевірений виробник ЕКІПАЖ, якому можна довіряти в якості вікон, дверей та іншого'},
+    {icon:'diia',title:'Працюємо за програмою «єВідновлення»',desc:React.createElement(React.Fragment,null,'Надаємо усі документи',React.createElement('br'),'для оформлення в Дія')},
+    {icon:'truck',title:'Швидке виготовлення та монтаж',desc:'5-7 робочих днів. Все під ключ — від заміру до готового виробу'}
+  ];
+  return React.createElement('section',{className:'why',id:'why-us-section','data-screen-label':'Чому обирають нас',ref},
+    React.createElement('div',{className:'why-panel'},
+      React.createElement('div',{className:'why-head'}, React.createElement('h2',null,'Чому обирають нас')),
+      React.createElement('div',{className:'why-grid'},
+        items.map((it,i)=>React.createElement('div',{className:'why-card'+(visible?' visible':''),key:i,style:{transitionDelay:(i*120)+'ms'}},
+          it.icon==='diia'
+            ? React.createElement('img',{className:'diia-icon',src:'assets/images/diia-solid.svg',alt:'Дія'})
+            : it.icon==='flag'
+            ? React.createElement('div',{className:'icon-wrap'}, React.createElement(UkraineFlagIcon))
+            : React.createElement('div',{className:'icon-wrap'}, React.createElement(Icon,{name:it.icon,size:28,color:'var(--color-primary)'})),
+          React.createElement('h3',null,it.title),
+          React.createElement('p',null,it.desc)
+        ))
+      )
+    )
+  );
+}
+
+function Standards(){
+  const items = [
+    {label:'Комплексний підхід',desc:'Весь цикл робіт під ключ. Заміри, виробництво, доставка і монтаж — все беремо на себе'},
+    {label:'Офіційна гарантія',desc:'Надаємо офіційну гарантію на 5 років від виробника ЕКІПАЖ'},
+    {label:'Безкоштовна доставка',desc:'Доставляємо безкоштовно в Харків та Київ. В інші міста 500 грн'},
+    {label:'Кваліфікований монтаж',desc:'Наші бригади — досвідчені спеціалісти, які відповідають за результат. Монтаж виконуємо у Харкові та Києві 5-7 днів'}
+  ];
+  const px = id => 'https://images.pexels.com/photos/'+id+'/pexels-photo-'+id+'.jpeg?auto=compress&cs=tinysrgb&w=1400';
+  const STD_PHOTOS = [
+    {src:px(6124242)},
+    {src:px(10517916)},
+    {src:px(11756413)},
+    {src:px(4696037)}
+  ];
+  return React.createElement('section',{className:'standards',id:'standards-section','data-screen-label':'Стандарти та гарантії'},
+    React.createElement('div',{className:'standards-head'},
+      React.createElement('h2',null,'Наші стандарти', React.createElement('br'), 'і гарантії'),
+      React.createElement(Button,{variant:'secondary',size:'md',icon:'arrow-right',iconPosition:'right',onClick:openQuote},'Отримати прорахунок')
+    ),
+    React.createElement('div',{className:'standards-grid'},
+      items.map((it,i)=>React.createElement('div',{className:'standard-card',key:i},
+        React.createElement('image-slot',{id:'standard-'+(i+1),shape:'rect',fit:'cover',src:STD_PHOTOS[i].src,placeholder:it.label}),
+        React.createElement('div',{className:'scrim'}),
+        React.createElement('div',{className:'content'},
+          React.createElement('div',{className:'idx'}, String(i+1).padStart(2,'0')),
+          React.createElement('h3',null,it.label),
+          React.createElement('p',null,it.desc)
+        )
+      ))
+    )
+  );
+}
+
+function Contact(){
+  const perks = [
+    {icon:'truck',title:'Безкоштовна доставка',desc:'Привеземо конструкції на об’єкт без доплат за логістику'},
+    {icon:'clock',title:'Виготовлення та монтаж 5–7 днів',desc:'Дату встановлення фіксуємо в договорі і тримаємо її'},
+    {icon:'shield-check',title:'Працюємо з програмою єВідновлення',desc:'Надаємо всі необхідні документи',diia:true}
+  ];
+  return React.createElement('section',{className:'contact',id:'contact-section','data-screen-label':'Контакти'},
+    React.createElement('div',{className:'contact-inner'},
+      React.createElement('div',{className:'contact-head'},
+        React.createElement('p',{className:'contact-eyebrow'},'Залишити заявку'),
+        React.createElement('h2',null,'Одне рішення може змінити все'),
+        React.createElement('p',{className:'contact-sub'},'Заповніть форму, щоб отримати найвигідніші умови та', React.createElement('br'), 'індивідуальний розрахунок вартості проєкту')
+      ),
+      React.createElement('div',{className:'contact-grid'},
+        React.createElement('div',{className:'contact-form'},
+          React.createElement(QuoteForm,{heading:'Заявка на прорахунок',lede:'Займе менше хвилини. Усі поля обов\u2019язкові — за номером уточнимо розміри й дату заміру',cta:'Відправити заявку'})
+        ),
+        React.createElement('div',{className:'contact-side'},
+          React.createElement('p',{className:'side-eyebrow'},'Або без форми'),
+          React.createElement('h3',null,'Зателефонуйте напряму'),
+          React.createElement('p',{className:'side-note'},'Не хочете залишати дані — наберіть нас. Менеджер назве орієнтовну вартість уже на другій хвилині розмови'),
+          React.createElement('div',{className:'phone-list'},
+            PHONES.map(p=>React.createElement('a',{className:'phone-big',key:p,href:'tel:+38'+p.replace(/\s/g,'')},
+              React.createElement(Icon,{name:'phone',size:26,color:'#fff'}),
+              React.createElement('span',null,p)
+            ))
+          ),
+          React.createElement('div',{className:'hours'},
+            React.createElement('div',{className:'hours-row'},React.createElement('span',null,'Пн–Пт'),React.createElement('b',null,'09:00–18:00')),
+            React.createElement('div',{className:'hours-row'},React.createElement('span',null,'Сб'),React.createElement('b',null,'09:00–14:00')),
+            React.createElement('div',{className:'hours-row'},React.createElement('span',null,'Нд'),React.createElement('b',null,'вихідний')),
+            React.createElement('p',{className:'hours-note'},'Перерва з 13:00–14:00')
+          ),
+          React.createElement('div',{className:'perks'},
+            perks.map(p=>React.createElement('div',{className:'perk',key:p.title},
+              p.diia
+                ? React.createElement('img',{className:'perk-diia',src:'assets/images/diia-solid.svg',alt:'Дія'})
+                : React.createElement('div',{className:'perk-ico'}, React.createElement(Icon,{name:p.icon,size:20,color:'var(--white)'})),
+              React.createElement('div',null,
+                React.createElement('b',null,p.title),
+                React.createElement('span',null,p.desc)
+              )
+            ))
+          ),
+          React.createElement('div',{className:'brand-line'},
+            React.createElement('span',null,'Магазин'),
+            React.createElement('b',null,'ВІКНА-ОБРІЙ'),
+            React.createElement('span',{className:'brand-mfr'},
+              React.createElement('em',null,'виробник'),
+              React.createElement('img',{src:'assets/images/ekipazh-logo.svg',alt:'ЕКІПАЖ',className:'brand-logo'})
+            )
+          )
+        )
+      )
+    )
+  );
+}
+
+
+function Services(){  const cards = [
+    {id:'plastic',photo:'7061662',title:'Металопластикові вікна',desc:'Вікна з профілю на 5–7 камер. Тримають тепло, не пропускають шум і вуличний пил. Робимо під розмір вашого проєму'},
+    {id:'doors',photo:'279607',title:'Двері',desc:'Вхідні та міжкімнатні двері з металопластику й алюмінію. Підбираємо фурнітуру, замки й колір під приміщення'},
+    {id:'glass',photo:'323705',title:'Склопакети',desc:'Заміна тріснутого чи запотілого склопакета без демонтажу всього вікна. Є енергозберігаючі та шумозахисні варіанти'},
+    {id:'reveals',photo:'6474471',title:'Відкоси',desc:'Закриваємо проєм після монтажу: рівні відкоси, підвіконня, герметизація. Вікно виглядає завершеним і не дує'},
+    {id:'blinds',photo:'1743227',title:'Жалюзі та рулонні штори',desc:'Захист від сонця під розмір вікна. Тканини й ламелі на вибір, встановлюємо в день доставки'}
+  ];
+  const steps = [
+    'За вашою заявкою виїжджає менеджер',
+    'Робить заміри вікон і прораховує вартість',
+    'Складає договір з мокрою печаткою',
+    'Передоплата на місці — термінал із собою, приймаємо картку «єВідновлення» та інші',
+    'Отримуєте фіскальний чек і свій примірник договору'
+  ];
+  const featured = React.createElement('div',{className:'service-card featured',key:'office'},
+    React.createElement('div',{className:'inner'},
+      React.createElement('div',{className:'photo'}, React.createElement('img',{src:pexels('3184465'),alt:'Менеджер на замірі',loading:'lazy'})),
+      React.createElement('div',{className:'body'},
+        React.createElement('span',{className:'service-tag'},'Виїзний офіс'),
+        React.createElement('h3',null,'Оформлення вдома — без поїздок в офіс'),
+        React.createElement('p',null,'Менеджер приїжджає до вас і закриває всю угоду на місці — від заміру до чека'),
+        React.createElement('ul',{className:'service-steps'},
+          steps.map((s,i)=>React.createElement('li',{key:i}, React.createElement('span',null,String(i+1).padStart(2,'0')), React.createElement('span',{style:{color:'inherit',fontFamily:'var(--font-sans)',fontSize:'13.5px'}},s)))
+        ),
+        React.createElement('div',{className:'cta'},
+          React.createElement(Button,{variant:'secondary',size:'md',icon:'arrow-right',iconPosition:'right',onClick:openQuote},'Замовити зараз')
+        )
+      )
+    )
+  );
+  const plain = (c) => React.createElement('div',{className:'service-card',key:c.id},
+    React.createElement('div',{className:'photo'}, React.createElement('img',{src:pexels(c.photo),alt:c.title,loading:'lazy'})),
+    React.createElement('div',{className:'body'},
+      React.createElement('h3',null,c.title),
+      React.createElement('p',null,c.desc),
+      React.createElement('div',{className:'cta'},
+        SERVICE_HREFS[c.title]
+          ? React.createElement(Button,{variant:'secondary',size:'sm',icon:'arrow-right',iconPosition:'right',onClick:()=>{location.href=SERVICE_HREFS[c.title]}},'Детальніше')
+          : React.createElement(Button,{variant:'secondary',size:'sm',icon:'arrow-right',iconPosition:'right',onClick:openQuote},'Замовити зараз')
+      )
+    )
+  );
+  return React.createElement('section',{className:'services',id:'services','data-screen-label':'Наші послуги'},
+    React.createElement('div',{className:'services-panel'},
+      React.createElement('div',{className:'services-head'},
+        React.createElement('h2',null,'Наші послуги'),
+        React.createElement('p',null,'Виготовляємо і монтуємо самі, тому відповідаємо за кожен етап. Оберіть послугу — прорахуємо вартість безкоштовно')
+      ),
+      React.createElement('div',{className:'services-grid'},
+        plain(cards[0]), featured, plain(cards[1]), plain(cards[2]), plain(cards[3]), plain(cards[4])
+      )
+    )
+  );
+}
+
+function EkipazhMark(){
+  const p = ['M25.07 16.6799V18.6299H20.22V19.4499H24.92V21.4499H20.22V22.3399H25.14V24.3099H17.07V16.6599H25.07V16.6799Z','M26.7 24.3199V16.6699H29.82V19.5199L32.72 16.6699H36.3L32.75 20.0999L36.59 24.3099H32.68L29.81 21.0199V24.3099H26.7V24.3199Z','M45.73 22.1299V24.3199H42.6V16.6699H48.4C51.49 16.6699 52.23 17.7399 52.23 19.2699V19.4099C52.23 20.9799 51.45 22.1199 48.4 22.1199H45.73V22.1299ZM45.73 20.0399H48.08C48.82 20.0399 48.96 19.7199 48.96 19.3999V19.3799C48.96 19.0999 48.82 18.7699 48.08 18.7699H45.73V20.0399Z','M59.26 23.1799H55.41L54.89 24.3199H51.76L55.39 16.6699H59.45L63.12 24.3199H59.8L59.26 23.1799ZM57.34 18.9399L56.28 21.2599H58.39L57.34 18.9399Z','M63.73 24.3199V22.4299L68.04 18.9899H63.79V16.6799H72.55V18.5499L68.07 21.9899H72.59V24.3199H63.73Z','M74.16 16.6799H77.29V19.2899H80.95V16.6799H84.07V24.3299H80.95V21.5299H77.29V24.3299H74.16V16.6799Z','M20.9 40.5599C9.84 40.5599 0.839996 31.5599 0.839996 20.4999C0.839996 9.43994 9.84 0.439941 20.9 0.439941C29.11 0.439941 36.41 5.34994 39.49 12.9599L36.59 14.1399C33.99 7.71994 27.83 3.57994 20.9 3.57994C11.57 3.57994 3.97 11.1699 3.97 20.5099C3.97 29.8399 11.56 37.4399 20.9 37.4399C27.83 37.4399 33.99 33.2999 36.59 26.8799L39.49 28.0599C36.4 35.6499 29.11 40.5599 20.9 40.5599Z'];
+  return React.createElement('svg',{viewBox:'0 0 85 41',fill:'none','aria-label':'ЕКІПАЖ',role:'img'},
+    p.map((d,i)=>React.createElement('path',{d,fill:'#fff',key:i})),
+    React.createElement('path',{d:'M40.53 24.6399L37.46 23.9999C37.7 22.8499 37.82 21.6699 37.82 20.4999C37.82 19.3199 37.7 18.1499 37.46 16.9999L40.53 16.3599C40.81 17.7199 40.96 19.1099 40.96 20.4999C40.96 21.8899 40.82 23.2899 40.53 24.6399Z',fill:'#FF7700'})
+  );
+}
+
+function Partners(){
+  const logos = [
+    {src:'assets/images/partner-veka-logo.webp',alt:'VEKA',scale:0.98},
+    {src:'assets/images/partner-miroplast-logo.png',alt:'Miroplast',scale:1.04},
+    {src:'assets/images/partner-guardian-industries-logo.png',alt:'Guardian Industries',scale:1.06},
+    {src:'assets/images/partner-procural-logo.webp',alt:'Procural aluminium systems',scale:1}
+  ];
+  return React.createElement('section',{className:'partners',id:'partners-section','data-screen-label':'Наші партнери'},
+    React.createElement('div',{className:'partners-inner'},
+      React.createElement('div',{className:'partners-head'},
+        React.createElement('h2',null,'Наші партнери')
+      ),
+      React.createElement('div',{className:'partners-grid'},
+        React.createElement('div',{className:'partner-cell accent'},
+          React.createElement(EkipazhMark),
+          React.createElement('div',{className:'partner-role'},'виробник')
+        ),
+        logos.map(l => React.createElement('div',{className:'partner-cell',key:l.alt},
+          React.createElement('img',{src:l.src,alt:l.alt,loading:'lazy',style:{transform:'scale('+l.scale+')'}})
+        ))
+      )
+    )
+  );
+}
+
+function App(){
+  return React.createElement(React.Fragment,null, React.createElement(Header), React.createElement(Hero), React.createElement(Ticker), React.createElement(WhyUs), React.createElement(Partners), React.createElement(Standards), React.createElement(Services), React.createElement(Contact), React.createElement(Certificates), React.createElement(MapBlock), React.createElement(Footer), React.createElement(QuoteModal));
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Відкоси — ВІКНА-ОБРІЙ</title>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/colors.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/typography.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/radius.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/base.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/styles.css">
+<script src="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/_ds_bundle.js"></script>
+<script src="assets/js/image-slot.js"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.pw-hero{position:relative;padding:56px 48px 72px;background:var(--white)}
+.pw-hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;gap:0}
+.pw-crumbs{max-width:1280px;margin:0 auto 24px}
+.pw-photo{position:relative;aspect-ratio:4/4.6;background:var(--color-plate,#F1F1F1);overflow:hidden}
+.pw-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.pw-txt{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:0}
+.crumbs{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-family:var(--font-sans);font-size:13px;color:var(--color-text-tertiary)}
+.crumbs a{color:var(--color-text-secondary);text-decoration:none;transition:color .15s ease}
+.crumbs a:hover{color:var(--color-primary)}
+.crumbs span{color:var(--color-text-tertiary)}
+a{color:var(--color-primary);text-decoration:none}
+a:hover{color:var(--color-primary-700,#163a6e)}
+.pw-plate{background:var(--white);padding:38px 44px 34px;margin-left:-132px;border:1px solid var(--color-border)}
+.pw-plate h1{font-family:var(--font-sans);font-weight:700;font-size:clamp(28px,3.1vw,46px);line-height:1.1;letter-spacing:-.025em;color:var(--color-text);margin:0}
+.pw-plate h1 em{font-style:normal;color:var(--color-primary)}
+.pw-lede{font-family:var(--font-sans);font-size:15.5px;line-height:1.65;color:var(--color-text-secondary);margin:0;padding-left:56px;max-width:48ch;text-wrap:pretty}
+.pw-diia{position:absolute;left:56px;bottom:0;display:inline-flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;border:1px solid var(--color-border);background:transparent}
+.pw-diia img{width:38px;height:38px;display:block;flex-shrink:0}
+.pw-diia span{font-family:var(--font-sans);font-size:14.5px;font-weight:600;line-height:1.35;color:var(--color-text);text-wrap:pretty}
+.pw-eyebrow{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-primary);margin:0 0 12px}
+.pw-h2{font-family:var(--font-sans);font-weight:700;font-size:clamp(24px,2.4vw,34px);line-height:1.15;letter-spacing:-.02em;color:var(--color-text);margin:0 0 14px;text-wrap:pretty}
+.ot{padding:80px 48px;background:var(--white);border-top:1px solid var(--color-border)}
+.ot-inner{max-width:1280px;margin:0 auto}
+.ot-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin:0 0 34px}
+.ot-note{font-family:var(--font-sans);font-size:14px;line-height:1.6;color:var(--color-text-secondary);margin:0;max-width:44ch;text-wrap:pretty}
+.ot-panel{border:1px solid var(--color-border);background:var(--white)}
+.ot-cap{padding:20px 28px;background:var(--color-ink)}
+.ot-cap h3{font-family:var(--font-sans);font-size:clamp(18px,1.9vw,24px);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:#fff;margin:0;text-wrap:balance}
+.ot-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.ot-body{padding:28px 28px 30px;border-right:1px solid var(--color-border);min-width:0}
+.ot-col-title{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-primary);margin:0 0 14px}
+.ot-desc{font-family:var(--font-sans);font-size:14.5px;line-height:1.65;color:var(--color-text-secondary);margin:0 0 24px;text-wrap:pretty}
+.ot-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:11px 0;border-bottom:1px solid var(--color-border)}
+.ot-row:last-child{border-bottom:0}
+.ot-row span{font-family:var(--font-sans);font-size:14px;line-height:1.4;color:var(--color-text-secondary)}
+.ot-row b{font-family:ui-monospace,monospace;font-size:13.5px;font-weight:600;color:var(--color-text);text-align:right;line-height:1.45;overflow-wrap:anywhere}
+.ot-side{padding:28px 28px 30px;min-width:0}
+.ot-list{display:flex;flex-direction:column;gap:11px;margin:0;padding:0;list-style:none}
+.ot-list li{display:flex;gap:12px;font-family:var(--font-sans);font-size:14px;line-height:1.55;color:var(--color-text-secondary);text-wrap:pretty}
+.ot-list li::before{content:'';flex:0 0 auto;width:7px;height:7px;margin-top:7px;background:var(--color-primary)}
+.ot-foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:22px 28px;border-top:1px solid var(--color-border);background:var(--color-bg-subtle,#F5F6F8)}
+.ot-price em{display:block;font-style:normal;font-family:var(--font-sans);font-size:13px;color:var(--color-text-tertiary);margin-bottom:6px}
+.ot-price b{font-family:var(--font-sans);font-size:clamp(20px,2vw,28px);font-weight:700;letter-spacing:-.02em;color:var(--color-text)}
+.ot-foot button svg{transition:transform .2s ease}
+.ot-foot button:hover svg{transform:translateX(5px)}
+.wk{padding:72px 48px 84px;background:var(--white);border-top:1px solid var(--color-border)}
+.wk-inner{max-width:1280px;margin:0 auto}
+.wk-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--color-border);border:1px solid var(--color-border)}
+.wk-item{position:relative;background:var(--white);aspect-ratio:4/3;overflow:hidden}
+.wk-item img{width:100%;height:100%;object-fit:cover;display:block}
+.wk-item em{position:absolute;left:0;bottom:0;font-style:normal;font-family:var(--font-sans);font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--color-ink);padding:9px 14px}
+.pp{padding:72px 0 84px;background:var(--white);border-top:1px solid var(--color-border);overflow:hidden}
+.pp h2{font-family:var(--font-sans);font-weight:700;font-size:clamp(22px,2.2vw,30px);line-height:1.15;letter-spacing:-.02em;color:var(--color-text);margin:0 0 40px;text-align:center;padding:0 24px}
+.pp-strip{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pp-track{display:flex;align-items:center;gap:0;width:max-content;animation:pp-scroll 38s linear infinite}
+.pp-strip:hover .pp-track{animation-play-state:paused}
+.pp-item{flex:0 0 auto;width:230px;height:96px;display:flex;align-items:center;justify-content:center;padding:0 28px;border-right:1px solid var(--color-border)}
+.pp-item img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;display:block;filter:grayscale(1);opacity:.62;transition:filter .2s ease,opacity .2s ease}
+.pp-item:hover img{filter:none;opacity:1}
+@keyframes pp-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.pp-track{animation:none}}
+@media (max-width:1080px){
+.pw-plate{margin-left:-80px;padding:30px 32px}
+}
+@media (max-width:900px){
+.pw-hero{padding:28px 24px 56px}
+.pw-hero-inner{grid-template-columns:1fr}
+.pw-photo{aspect-ratio:4/3}
+.pw-txt{padding:0;gap:22px;justify-content:flex-start}
+.pw-plate{margin:-56px 0 0;padding:26px 24px;position:relative;width:100%}
+.pw-lede{padding-left:0}
+.pw-diia{position:static;margin:0;width:100%}
+.ot{padding:56px 24px}
+.ot-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:24px}
+.ot-stage{grid-template-columns:1fr}
+.ot-body{border-right:0;border-bottom:1px solid var(--color-border);padding:24px 22px 26px}
+.ot-side{padding:24px 22px 26px}
+.ot-cap{padding:18px 22px}
+.wk{padding:52px 24px 60px}
+.wk-grid{grid-template-columns:1fr}
+.pp{padding:52px 0 60px}
+.pp h2{margin-bottom:28px}
+.pp-item{width:172px;height:82px;padding:0 22px}
+.pp-item img{max-height:44px}
+}
+@media (max-width:640px){
+.ot-foot{padding:20px 22px;flex-direction:column;align-items:stretch;gap:16px}
+.ot-foot button{width:100%}
+.pw-plate{margin-top:-40px;width:100%}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react" src="assets/js/shell.jsx"></script>
+<script type="text/babel" data-presets="react">
+const PHOTO_A = 'assets/images/window-slopes-sandwich-panel-1.jpg';
+const PHOTO_B = 'assets/images/window-slopes-sandwich-panel-2.jpg';
+
+function OtHero(){
+  return React.createElement('section',{className:'pw-hero',id:'product-hero','data-screen-label':'Хіро відкоси'},
+    React.createElement('div',{className:'pw-crumbs'},
+      React.createElement('nav',{className:'crumbs'},
+        React.createElement('a',{href:'index.html'},'Головна'),
+        React.createElement('span',null,'/'),
+        React.createElement('span',null,'Відкоси')
+      )
+    ),
+    React.createElement('div',{className:'pw-hero-inner'},
+      React.createElement('div',{className:'pw-photo'},
+        React.createElement('img',{src:PHOTO_A,alt:'Вікно з готовими відкосами із сендвіч-панелей',loading:'lazy'})
+      ),
+      React.createElement('div',{className:'pw-txt'},
+        React.createElement('div',{className:'pw-plate'},
+          React.createElement('h1',null,React.createElement('em',null,'Відкоси'),' із сендвіч-панелей')
+        ),
+        React.createElement('p',{className:'pw-lede'},'Відкоси завершують монтаж вікна: закривають монтажний шов і формують рівне обрамлення прорізу. Виготовляємо їх із сендвіч-панелей — під розміри вашого прорізу, з виїздом на замір'),
+        React.createElement('div',{className:'pw-diia'},
+          React.createElement('img',{src:'assets/images/diia-logo.webp',alt:'Дія',loading:'lazy'}),
+          React.createElement('span',null,'Працюємо за програмою єВідновлення')
+        )
+      )
+    )
+  );
+}
+
+function OtBlock(){
+  return React.createElement('section',{className:'ot',id:'window-slopes-block','data-screen-label':'Відкоси'},
+    React.createElement('div',{className:'ot-inner'},
+      React.createElement('div',{className:'ot-head'},
+        React.createElement('div',null,
+          React.createElement('p',{className:'pw-eyebrow'},'Послуга ВІКНА-ОБРІЙ'),
+          React.createElement('h2',{className:'pw-h2'},'Відкоси під ваш проріз')
+        ),
+        React.createElement('p',{className:'ot-note'},'Вартість залежить від розмірів прорізу, кількості вікон і стану поверхні — рахуємо після заміру')
+      ),
+      React.createElement('div',{className:'ot-panel'},
+        React.createElement('div',{className:'ot-cap'},
+          React.createElement('h3',null,'Сендвіч-панель')
+        ),
+        React.createElement('div',{className:'ot-stage'},
+          React.createElement('div',{className:'ot-body'},
+            React.createElement('p',{className:'ot-desc'},'Сендвіч-панель — це два шари ПВХ із шаром утеплювача між ними. Панель ріжеться під розмір прорізу й монтується одразу: без штукатурних робіт, шпаклювання та фарбування.'),
+            React.createElement('p',{className:'ot-col-title'},'Коротко'),
+            React.createElement('div',{className:'ot-row'},React.createElement('span',null,'Матеріал'),React.createElement('b',null,'Сендвіч-панель')),
+            React.createElement('div',{className:'ot-row'},React.createElement('span',null,'Виготовлення'),React.createElement('b',null,'Під розмір прорізу')),
+            React.createElement('div',{className:'ot-row'},React.createElement('span',null,'Замір'),React.createElement('b',null,'З виїздом'))
+          ),
+          React.createElement('div',{className:'ot-side'},
+            React.createElement('p',{className:'ot-col-title'},'Що це дає'),
+            React.createElement('ul',{className:'ot-list'},
+              React.createElement('li',null,'Монтажний шов закритий і захищений від вологи та ультрафіолету'),
+              React.createElement('li',null,'Утеплювач у панелі зменшує промерзання відкосу'),
+              React.createElement('li',null,'Поверхня готова одразу — без мокрих робіт і пилу'),
+              React.createElement('li',null,'Рівні кути прорізу, догляд — вологе прибирання')
+            )
+          )
+        ),
+        React.createElement('div',{className:'ot-foot'},
+          React.createElement('div',{className:'ot-price'},
+            React.createElement('em',null,'Ціна'),
+            React.createElement('b',null,'Індивідуальний розрахунок')
+          ),
+          React.createElement(Button,{variant:'primary',size:'lg',icon:'arrow-right',iconPosition:'right',onClick:openQuote},'Залишити запит')
+        )
+      )
+    )
+  );
+}
+
+function OtPartners(){
+  const logos = [
+    {src:'assets/images/ekipazh-logo.svg',alt:'ЕКІПАЖ',h:52},
+    {src:'assets/images/partner-veka-logo.webp',alt:'VEKA',h:48},
+    {src:'assets/images/partner-miroplast-logo.png',alt:'Miroplast',h:40},
+    {src:'assets/images/partner-guardian-industries-logo.png',alt:'Guardian Industries',h:42},
+    {src:'assets/images/partner-procural-logo.webp',alt:'Procural aluminium systems',h:40}
+  ];
+  const row = (k)=>logos.map((l,i)=>React.createElement('div',{className:'pp-item',key:k+i},
+    React.createElement('img',{src:l.src,alt:l.alt,loading:'lazy',style:{maxHeight:l.h+'px'}})
+  ));
+  return React.createElement('section',{className:'pp',id:'partners-section','data-screen-label':'Партнери'},
+    React.createElement('h2',null,'Наші партнери'),
+    React.createElement('div',{className:'pp-strip'},
+      React.createElement('div',{className:'pp-track'}, row('a'), row('b'))
+    )
+  );
+}
+
+function App(){
+  return React.createElement(React.Fragment,null,
+    React.createElement(Header),
+    React.createElement(OtHero),
+    React.createElement(OtBlock),
+    React.createElement(OtPartners),
+    React.createElement(Certificates),
+    React.createElement(MapBlock),
+    React.createElement(Footer),
+    React.createElement(QuoteModal)
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>

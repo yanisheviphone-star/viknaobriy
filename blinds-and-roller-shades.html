@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Жалюзі та рулонні штори — ВІКНА-ОБРІЙ</title>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/colors.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/typography.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/radius.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/base.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/styles.css">
+<script src="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/_ds_bundle.js"></script>
+<script src="assets/js/image-slot.js"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.pw-hero{position:relative;padding:56px 48px 72px;background:var(--white)}
+.pw-hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;gap:0}
+.pw-crumbs{max-width:1280px;margin:0 auto 24px}
+.pw-photo{position:relative;aspect-ratio:4/4.6;background:var(--color-plate,#F1F1F1);overflow:hidden}
+.pw-photo image-slot,.pw-photo .photo-pending{width:100%;height:100%}
+.pw-txt{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:0}
+.crumbs{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-family:var(--font-sans);font-size:13px;color:var(--color-text-tertiary)}
+.crumbs a{color:var(--color-text-secondary);text-decoration:none;transition:color .15s ease}
+.crumbs a:hover{color:var(--color-primary)}
+.crumbs span{color:var(--color-text-tertiary)}
+.pw-plate{background:var(--white);padding:38px 44px 34px;margin-left:-132px;border:1px solid var(--color-border)}
+.pw-plate h1{font-family:var(--font-sans);font-weight:700;font-size:clamp(28px,3.1vw,46px);line-height:1.1;letter-spacing:-.025em;color:var(--color-text);margin:0}
+.pw-plate h1 em{font-style:normal;color:var(--color-primary)}
+.pw-lede{font-family:var(--font-sans);font-size:15.5px;line-height:1.65;color:var(--color-text-secondary);margin:0;padding-left:56px;max-width:48ch;text-wrap:pretty}
+.pw-diia{position:absolute;left:56px;bottom:0;display:inline-flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;border:1px solid var(--color-border);background:transparent}
+.pw-diia img{width:38px;height:38px;display:block;flex-shrink:0}
+.pw-diia span{font-family:var(--font-sans);font-size:14.5px;font-weight:600;line-height:1.35;color:var(--color-text);text-wrap:pretty}
+.pw-eyebrow{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-primary);margin:0 0 12px}
+.pw-h2{font-family:var(--font-sans);font-weight:700;font-size:clamp(24px,2.4vw,34px);line-height:1.15;letter-spacing:-.02em;color:var(--color-text);margin:0 0 14px;text-wrap:pretty}
+.bl{padding:80px 48px;background:var(--white);border-top:1px solid var(--color-border)}
+.bl-inner{max-width:1280px;margin:0 auto}
+.bl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin:0 0 34px}
+.bl-note{font-family:var(--font-sans);font-size:14px;line-height:1.6;color:var(--color-text-secondary);margin:0;max-width:44ch;text-wrap:pretty}
+.bl-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--color-border);border:1px solid var(--color-border)}
+.bl-tab{display:flex;flex-direction:column;gap:4px;align-items:flex-start;background:var(--white);border:0;padding:14px 20px;cursor:pointer;transition:background .15s ease;text-align:left;min-width:0}
+.bl-tab span{font-family:var(--font-sans);font-size:13.5px;font-weight:600;color:var(--color-text-tertiary);transition:color .15s ease;text-wrap:balance}
+.bl-tab i{font-style:normal;font-family:ui-monospace,monospace;font-size:11.5px;color:var(--color-text-tertiary);opacity:.8}
+.bl-tab:hover span{color:var(--color-text)}
+.bl-tab.on{background:var(--color-plate,#F1F1F1)}
+.bl-tab.on span{color:var(--color-text)}
+.bl-tab.on i{color:var(--color-primary);opacity:1}
+.bl-panel{border:1px solid var(--color-border);border-top:0;background:var(--white);display:flex;flex-direction:column}
+.bl-cap{padding:20px 28px;background:var(--color-ink);display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.bl-cap h3{font-family:var(--font-sans);font-size:clamp(18px,1.9vw,24px);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:#fff;margin:0;text-wrap:balance}
+.bl-cap em{font-style:normal;font-family:ui-monospace,monospace;font-size:12.5px;letter-spacing:.06em;color:rgba(255,255,255,.6);flex-shrink:0}
+.bl-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.bl-stage.models{grid-template-columns:248px minmax(0,1.05fr) minmax(0,1fr)}
+.bl-shot{position:relative;border-right:1px solid var(--color-border);background:var(--white);padding:26px 24px 34px;display:flex;align-items:center;justify-content:center;min-width:0}
+.bl-shot image-slot,.bl-shot .photo-pending{width:100%;height:340px;display:block}
+.bl-shot em{position:absolute;left:24px;bottom:14px;font-style:normal;font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-tertiary)}
+.bl-intro{padding:24px 28px;border-bottom:1px solid var(--color-border);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px}
+.bl-intro .bl-desc{margin:0}
+.bl-intro .bl-list{margin:0}
+.bl-models{display:flex;flex-direction:column;border-right:1px solid var(--color-border);max-height:472px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.bl-model{display:flex;align-items:baseline;justify-content:space-between;gap:12px;text-align:left;background:var(--white);border:0;border-bottom:1px solid var(--color-border);padding:12px 18px;cursor:pointer;transition:background .15s ease,color .15s ease}
+.bl-model:last-child{border-bottom:0}
+.bl-model b{font-family:var(--font-sans);font-size:13.5px;font-weight:600;color:var(--color-text-tertiary);line-height:1.35;transition:color .15s ease}
+.bl-model i{font-style:normal;font-family:ui-monospace,monospace;font-size:11.5px;color:var(--color-text-tertiary);white-space:nowrap;opacity:.85}
+.bl-model:hover b{color:var(--color-text)}
+.bl-model.on{background:var(--color-plate,#F1F1F1)}
+.bl-model.on b{color:var(--color-text)}
+.bl-model.on i{color:var(--color-primary);opacity:1}
+.bl-body{padding:28px 28px 30px;border-right:1px solid var(--color-border);min-width:0}
+.bl-col-title{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-primary);margin:0 0 14px}
+.bl-desc{font-family:var(--font-sans);font-size:14.5px;line-height:1.65;color:var(--color-text-secondary);margin:0 0 24px;text-wrap:pretty}
+.bl-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:11px 0;border-bottom:1px solid var(--color-border)}
+.bl-row:last-child{border-bottom:0}
+.bl-row span{font-family:var(--font-sans);font-size:14px;line-height:1.4;color:var(--color-text-secondary)}
+.bl-row b{font-family:ui-monospace,monospace;font-size:13.5px;font-weight:600;color:var(--color-text);text-align:right;line-height:1.45;overflow-wrap:anywhere}
+.bl-side{padding:28px 28px 30px;min-width:0;display:flex;flex-direction:column}
+.bl-list{display:flex;flex-direction:column;gap:11px;margin:0 0 26px;padding:0;list-style:none}
+.bl-list li{display:flex;gap:12px;font-family:var(--font-sans);font-size:14px;line-height:1.55;color:var(--color-text-secondary);text-wrap:pretty}
+.bl-list li::before{content:'';flex:0 0 auto;width:7px;height:7px;margin-top:7px;background:var(--color-primary)}
+.bl-empty{margin-top:auto;border:1px solid var(--color-border);background:var(--color-bg-subtle,#F5F6F8);padding:16px 18px;font-family:var(--font-sans);font-size:13.5px;line-height:1.55;color:var(--color-text-secondary);text-wrap:pretty}
+.bl-foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:22px 28px;border-top:1px solid var(--color-border);background:var(--color-bg-subtle,#F5F6F8)}
+.bl-price em{display:block;font-style:normal;font-family:var(--font-sans);font-size:13px;color:var(--color-text-tertiary);margin-bottom:6px}
+.bl-price b{font-family:var(--font-sans);font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--color-text)}
+.bl-price b i{font-style:normal;font-size:16px;font-weight:600;color:var(--color-text-secondary);margin-left:6px}
+.bl-foot button svg{transition:transform .2s ease}
+.bl-foot button:hover svg{transform:translateX(5px)}
+.pp{padding:72px 0 84px;background:var(--white);border-top:1px solid var(--color-border);overflow:hidden}
+.pp h2{font-family:var(--font-sans);font-weight:700;font-size:clamp(22px,2.2vw,30px);line-height:1.15;letter-spacing:-.02em;color:var(--color-text);margin:0 0 40px;text-align:center;padding:0 24px}
+.pp-strip{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pp-track{display:flex;align-items:center;gap:0;width:max-content;animation:pp-scroll 38s linear infinite}
+.pp-strip:hover .pp-track{animation-play-state:paused}
+.pp-item{flex:0 0 auto;width:230px;height:96px;display:flex;align-items:center;justify-content:center;padding:0 28px;border-right:1px solid var(--color-border)}
+.pp-item img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;display:block;filter:grayscale(1);opacity:.62;transition:filter .2s ease,opacity .2s ease}
+.pp-item:hover img{filter:none;opacity:1}
+@keyframes pp-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.pp-track{animation:none}}
+@media (max-width:1080px){
+.pw-plate{margin-left:-80px;padding:30px 32px}
+.bl-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+.pw-hero{padding:28px 24px 56px}
+.pw-hero-inner{grid-template-columns:1fr}
+.pw-photo{aspect-ratio:4/3}
+.pw-txt{padding:0;gap:22px;justify-content:flex-start}
+.pw-plate{margin:-56px 0 0;padding:26px 24px;position:relative;width:100%}
+.pw-lede{padding-left:0}
+.pw-diia{position:static;margin:0;width:100%}
+.bl{padding:56px 24px}
+.bl-tabs{display:flex}
+.bl-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:24px}
+.bl-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.bl-tab{flex:0 0 auto;width:auto;scroll-snap-align:start;padding:13px 18px;gap:5px}
+.bl-tab span,.bl-tab i{white-space:nowrap;overflow:visible}
+.bl-stage{grid-template-columns:1fr}
+.bl-stage.models{grid-template-columns:1fr}
+.bl-shot{border-right:0;border-bottom:1px solid var(--color-border);padding:20px 22px 30px}
+.bl-shot image-slot,.bl-shot .photo-pending{height:240px}
+.bl-shot em{left:22px;bottom:10px}
+.bl-intro{grid-template-columns:1fr;gap:20px;padding:22px}
+.bl-models{border-right:0;border-bottom:1px solid var(--color-border);max-height:224px}
+.bl-body{border-right:0;border-bottom:1px solid var(--color-border);padding:24px 22px 26px}
+.bl-side{padding:24px 22px 26px}
+.bl-cap{padding:18px 22px}
+.pp{padding:52px 0 60px}
+.pp h2{margin-bottom:28px}
+.pp-item{width:172px;height:82px;padding:0 22px}
+.pp-item img{max-height:44px}
+}
+@media (max-width:640px){
+.bl-foot{padding:20px 22px;flex-direction:column;align-items:stretch;gap:16px}
+.bl-foot button{width:100%}
+.pw-plate{margin-top:-40px;width:100%}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react" src="assets/js/shell.jsx"></script>
+<script type="text/babel" data-presets="react">
+const ROLLER = [
+  {name:'Mini Vegas', img:'assets/roller/r01.jpg', size:'500×1500 мм', price:'709', specs:[['Тип системи','Відкрита, на стулку'],['Тип управління','Ланцюжком'],['Тип фіксації','Волосінь, магніти, без фіксації'],['Монтаж','Настінний'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'Mini Besta', img:'assets/roller/r02.jpg', size:'500×1500 мм', price:'709', specs:[['Тип системи','Відкрита, на стулку'],['Тип управління','Ланцюжком, пульт ДУ'],['Тип фіксації','Волосінь, магніти, без фіксації'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'Classic, Maxi Classic', img:'assets/roller/r03.jpg', size:'500×1500 мм', price:'1 247', specs:[['Тип системи','Касетна, на стулку'],['Тип управління','Ланцюжком, пульт ДУ'],['Тип фіксації','Напрямні'],['Монтаж','Настінний'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'Profil', img:'assets/roller/r04.jpg', size:'500×1500 мм', price:'1 503', specs:[['Тип системи','Касетна, на стулку'],['Тип управління','Ланцюжком'],['Тип фіксації','Напрямні'],['Монтаж','Настінний'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'S-25, M-25', img:'assets/roller/r05.jpg', size:'1000×1600 мм', price:'1 415', specs:[['Тип системи','Відкрита, на стулку, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, волосінь, магніти, нижня фіксація'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'S-32', img:'assets/roller/r06.jpg', size:'1400×1800 мм', price:'2 539', specs:[['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, магніти, нижня фіксація, тросова фіксація'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'SK-32', img:'assets/roller/r07.jpg', size:'1400×1800 мм', price:'4 228', specs:[['Діаметр вала','32 мм'],['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Дитяча безпека','Додаткова опція'],['Монтаж','Настінний, стельовий'],['Декор','Волан, декор коробу']]},
+  {name:'Perfect', img:'assets/roller/r08.jpg', size:'1400×1800 мм', price:'3 709', specs:[['Діаметр вала','32 мм, 40 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан, декор кронштейнів']]},
+  {name:'SK-Perfect', img:'assets/roller/r09.jpg', size:'1400×1800 мм', price:'5 819', specs:[['Діаметр вала','32 мм'],['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан, декор кронштейнів']]},
+  {name:'RM-40, RM-40 United', img:'assets/roller/r10.jpg', size:null, price:null, specs:[['Діаметр вала','40 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, нижня фіксація, тросова фіксація'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'SK-40', img:'assets/roller/r11.jpg', size:null, price:null, specs:[['Діаметр вала','40 мм'],['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, нижня фіксація, тросова фіксація'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Стандартна комплектація'],['Декор','Волан']]},
+  {name:'RM-45, RM-45 United', img:'assets/roller/r12.jpg', size:null, price:null, specs:[['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, нижня фіксація, тросова фіксація'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'S-47, S-47 United', img:'assets/roller/r13.jpg', size:null, price:null, specs:[['Діаметр вала','47 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, нижня фіксація'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'SB-47', img:'assets/roller/r14.jpg', size:null, price:null, specs:[['Діаметр вала','47 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, нижня фіксація'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'RM-50', img:'assets/roller/r15.jpg', size:null, price:null, specs:[['Діаметр вала','50 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, нижня фіксація, тросова фіксація'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'RM-61, RM-61 United', img:'assets/roller/r16.jpg', size:null, price:null, specs:[['Діаметр вала','61 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан']]},
+  {name:'RM-63 Motor', img:'assets/roller/r17.jpg', size:null, price:null, specs:[['Діаметр вала','61 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Пульт ДУ'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Декор','Волан']]},
+  {name:'SKB Combi-40, SKB Combi-40 United', img:'assets/roller/r18.jpg', size:null, price:null, specs:[['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Пульт ДУ'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Декор','Волан']]}
+];
+
+const DAYNIGHT = [
+  {name:'DN-Mini Lux', img:'assets/daynight/d01.jpg', size:'400×1300 мм', price:'1 240', specs:[['Діаметр вала','18 мм'],['Тип системи','Відкрита, на стулку'],['Тип управління','Ланцюжком'],['Тип фіксації','Жилка, магніти, без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN-Besta', img:'assets/daynight/d02.jpg', size:'400×1300 мм', price:'1 240', specs:[['Діаметр вала','19 мм'],['Тип системи','Відкрита, на стулку'],['Тип управління','Ланцюжком'],['Тип фіксації','Жилка, без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN-Maxi Classic', img:'assets/daynight/d03.jpg', size:'500×1300 мм', price:'1 787', specs:[['Тип системи','Касетна, на стулку'],['Тип управління','Ланцюжком'],['Тип фіксації','Напрямні'],['Напрямні','Є'],['Монтаж','Настінний'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN-Profil', img:'assets/daynight/d04.jpg', size:'500×1300 мм', price:'1 787', specs:[['Діаметр вала','18 мм'],['Тип системи','Касетна, на стулку'],['Тип управління','Ланцюжком'],['Тип фіксації','Напрямні'],['Напрямні','Є'],['Монтаж','Настінний'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN-Мансарда-Люкс Motor', img:'assets/daynight/d05.jpg', size:null, price:null, specs:[['Тип системи','Касетна'],['Тип управління','Ланцюжком, пульт ДУ, радіовимикач'],['Тип фіксації','Напрямні'],['Монтаж','На мансардні вікна'],['Матеріал системи','Алюміній']]},
+  {name:'DN SB-25, DN SB-25 United', img:'assets/daynight/d06.jpg', size:'1000×1600 мм', price:'2 518', specs:[['Діаметр вала','25 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, жилка'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN M-40', img:'assets/daynight/d07.jpg', size:null, price:null, specs:[['Діаметр вала','40 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, магніти, нижня фіксація, тросова фіксація'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN-47, DN-47 United', img:'assets/daynight/d08.jpg', size:null, price:null, specs:[['Діаметр вала','47 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN SB-47', img:'assets/daynight/d09.jpg', size:null, price:null, specs:[['Діаметр вала','47 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN-Perfect', img:'assets/daynight/d10.jpg', size:null, price:null, specs:[['Діаметр вала','32 мм, 40 мм'],['Тип системи','Відкрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція'],['Декор','Волан, декор кронштейнів']]},
+  {name:'DN SK-Perfect', img:'assets/daynight/d11.jpg', size:null, price:null, specs:[['Діаметр вала','32 мм'],['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Дитяча безпека','Додаткова опція'],['Декор','Волан, декор кронштейнів']]},
+  {name:'DN SKB-32 Duet', img:'assets/daynight/d12.jpg', size:null, price:null, specs:[['Діаметр вала','32 мм'],['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN SK-32', img:'assets/daynight/d13.jpg', size:null, price:null, specs:[['Діаметр вала','32 мм'],['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN SKB-32, DN SKB-32 United', img:'assets/daynight/d14.jpg', size:null, price:null, specs:[['Діаметр вала','32 мм'],['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN SK-40', img:'assets/daynight/d15.jpg', size:null, price:null, specs:[['Діаметр вала','40 мм'],['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]},
+  {name:'DN Combi-40, DN Combi-40 United', img:'assets/daynight/d16.jpg', size:null, price:null, specs:[['Тип системи','Касетна, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Напрямні','Немає'],['Монтаж','Настінний, стельовий'],['Дитяча безпека','Додаткова опція']]}
+];
+
+const PLISSE = [
+  {name:'Plisse Vegas', img:'assets/plisse/p01.jpg', size:'400×1100 мм', price:'932', specs:[['Тип вікна','Прямокутні'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse M Vegas', img:'assets/plisse/p02.jpg', size:'400×1100 мм', price:'1 611', specs:[['Тип вікна','Прямокутні, мансардні'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AO-10, AO-11', img:'assets/plisse/p03.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Прямокутні'],['Вид монтажу','На стулку, в віконний проєм'],['Тип управління','Шнур']]},
+  {name:'Plisse JM AO-28, AO-29', img:'assets/plisse/p04.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Прямокутні'],['Вид монтажу','На стулку, в віконний проєм'],['Тип управління','Шнур']]},
+  {name:'Plisse JM AB-11', img:'assets/plisse/p05.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Прямокутні'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AB-41', img:'assets/plisse/p06.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Прямокутні'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AB-82', img:'assets/plisse/p07.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Прямокутні'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AO-45', img:'assets/plisse/p08.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Шнур']]},
+  {name:'Plisse JM AO-43, AO-44', img:'assets/plisse/p09.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Шнур']]},
+  {name:'Plisse JM AB-61', img:'assets/plisse/p10.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AB-62', img:'assets/plisse/p11.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AB-64, AB-65', img:'assets/plisse/p12.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AB-50', img:'assets/plisse/p13.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AB-52', img:'assets/plisse/p14.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM AB-53', img:'assets/plisse/p15.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM DB-11', img:'assets/plisse/p16.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Нестандартної форми'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse JM DB-21', img:'assets/plisse/p17.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Прямокутні, мансардні'],['Вид монтажу','На стулку'],['Тип управління','Ручка']]},
+  {name:'Plisse R', img:'assets/plisse/p18.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Прямокутні'],['Вид монтажу','На стулку, в віконний проєм'],['Тип управління','Ланцюжок, пульт ДУ']]},
+  {name:'Plisse Lux', img:'assets/plisse/p19.jpg', size:'800×1100 мм', price:null, specs:[['Тип вікна','Прямокутні'],['Вид монтажу','На стулку, в віконний проєм'],['Тип управління','Пульт ДУ']]}
+];
+
+const ROMAN = [
+  {name:'Combi', img:'assets/roman/rm01.jpg', size:'800×1200 мм', price:'2 078', specs:[['Тип системи','Відкрита, на стулку, в віконний проєм'],['Тип управління','Ланцюжком'],['Мінімальна ширина виробу','360 мм'],['Тип фіксації','Жилка, магніти, без фіксації'],['Монтаж','Настінний, стельовий'],['Декор','Волан']]},
+  {name:'Classic', img:'assets/roman/rm02.jpg', size:'800×1200 мм', price:'1 620', specs:[['Тип системи','Відкрита, на стулку, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, жилка'],['Мінімальна ширина виробу','360 мм'],['Монтаж','Настінний, стельовий'],['Декор','Волан']]},
+  {name:'Elegance', img:'assets/roman/rm03.jpg', size:'800×1200 мм', price:'1 575', specs:[['Тип системи','Закрита, на стулку, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації, жилка'],['Монтаж','Настінний, стельовий'],['Декор','Волан']]},
+  {name:'DN', img:'assets/roman/rm04.jpg', size:'800×1200 мм', price:'3 150', specs:[['Тип системи','Закрита, в віконний проєм'],['Тип управління','Ланцюжком'],['Тип фіксації','Без фіксації'],['Монтаж','Настінний, стельовий'],['Декор','Волан']]}
+];
+
+const WOOD = [
+  {name:'Ламелі 25 мм', img:'assets/wood/w01.jpg', size:'500×1100 мм', price:'1 924', specs:[['Матеріал карниза','Алюміній'],['Ширина ламелей','25 мм'],['Матеріал ламелей','Дерево']]},
+  {name:'Ламелі 50 мм', img:'assets/wood/w02.jpg', size:'500×1100 мм', price:'2 052', specs:[['Матеріал карниза','Алюміній'],['Ширина ламелей','50 мм'],['Матеріал ламелей','Дерево']]}
+];
+
+const HORIZ = [
+  {name:'Алюмінієві 25 мм', img:'assets/horiz/h01.jpg', size:null, price:'540', unit:'грн/м²', specs:[['Матеріал карниза','Метал'],['Ширина ламелей','25 мм'],['Матеріал ламелей','Алюміній']]},
+  {name:'Алюмінієві 16 мм', img:'assets/horiz/h02.jpg', size:null, price:'776', unit:'грн/м²', specs:[['Матеріал карниза','Метал'],['Ширина ламелей','16 мм'],['Матеріал ламелей','Алюміній']]},
+  {name:'Venus 25 мм', img:'assets/horiz/h03.jpg', size:null, price:'1 114', unit:'грн/м²', specs:[['Висота карниза','45 мм'],['Ширина ламелей','25 мм'],['Матеріал ламелей','Алюміній']]},
+  {name:'Venus 16 мм', img:'assets/horiz/h04.jpg', size:null, price:'1 260', unit:'грн/м²', specs:[['Висота карниза','45 мм'],['Ширина ламелей','16 мм'],['Матеріал ламелей','Алюміній']]}
+];
+
+const VERT = [
+  {name:'Тканинні 89 мм', img:'assets/vert/v01.jpg', size:null, price:'513', unit:'грн/м²', specs:[['Матеріал профілю','Алюміній'],['Ширина ламелей','89 мм'],['Матеріал ламелей','Текстиль'],['Монтаж','Стельовий, стіновий, в укіс']]},
+  {name:'Тканинні 127 мм', img:'assets/vert/v02.jpg', size:null, price:'483', unit:'грн/м²', specs:[['Матеріал профілю','Алюміній'],['Ширина ламелей','127 мм'],['Матеріал ламелей','Текстиль'],['Монтаж','Стельовий, стіновий, в укіс']]},
+  {name:'Мультифактурні 89 мм', img:'assets/vert/v03.jpg', size:null, price:'900', unit:'грн/м²', specs:[['Матеріал карниза','Алюміній'],['Ширина ламелей','89 мм']]}
+];
+
+const MANSARD = [
+  {name:'Мансарда-Люкс', img:'assets/mansard/m01.jpg', size:'500×1400 мм', price:'3 104', specs:[['Тип системи','Касетна, на стулку'],['Тип управління','Ручка'],['Напрямні','Є'],['Монтаж','На мансардні вікна'],['Тип фіксації','Гальмівний механізм']]}
+];
+
+const TYPES = [
+  {name:'Рулонні штори', tab:'Рулонні штори', kind:'тканинні ролети',
+   desc:'Полотно намотується на вал у верхній частині вікна й опускається рівно вздовж скла, тому штора не займає місця на підвіконні. Виготовляємо під розмір вікна з тканинами різної щільності, зокрема Blackout для повного затемнення.',
+   facts:[['Системи','Відкриті, касетні'],['Управління','Ланцюжок, пульт ДК'],['Монтаж','На стулку, в проєм, на стіну'],['Тканини','Blackout, світлопрозорі, світловідбивні']],
+   feats:['Кріпляться на стулку без сверління рами','Касетні системи з напрямними не пропускають світло по краях','Знижують нагрів приміщення влітку','Прибирають відблиски з екранів'],
+   price:'709', unit:'грн', note:'Ціна вказана за розміру 500×1500 мм', models:ROLLER},
+  {name:'Рулонні штори День-Ніч', tab:'День-Ніч', kind:'зебра',
+   desc:'Двошарове полотно «зебра» з чергуванням прозорих і щільних смуг. Зсуваючи смуги, ви плавно регулюєте світло — від розсіяного денного до майже повного затемнення.',
+   facts:[['Системи','Відкриті, з коробом, касетні'],['Управління','Ланцюжок, пульт ДК'],['Регулювання світла','приблизно 0–80%'],['Опції','Тканина Black Out, електропривод']],
+   feats:['Одна система дає кілька режимів освітлення','Приватність без втрати світла — сітчасті смуги непрозорі з вулиці','Підходять для класичних і мансардних вікон','Підключаються до систем «Розумний дім»'],
+   price:'1 240', unit:'грн', note:'Ціна вказана за розміру 400×1300 мм', models:DAYNIGHT},
+  {name:'Штори плісе', tab:'Плісе', kind:'жалюзі плісе',
+   desc:'Цільне плісироване полотно, зібране в рівні паралельні складки. Полотно плавно розтягується й збирається в компактний пакет, тому вікно виглядає акуратно навіть у складеному стані.',
+   facts:[['Типи вікон','Прямокутні, арочні, трапецієвидні, мансардні'],['Управління','Ручка, шнур, гриф, пульт ДК'],['Монтаж','На стулку, в проєм'],['Полотно','Одношарове, двошарове, Black Out']],
+   feats:['Підходять для вікон будь-якої форми','Можна відкрити вікно тільки згори або тільки знизу','Двошарові плісе дають додатковий енергозберігаючий ефект','У складеному вигляді займають мінімум місця'],
+   price:'932', unit:'грн', note:'Ціна вказана за розміру 400×1100 мм', models:PLISSE},
+  {name:'Римські штори', tab:'Римські', kind:'мʼякі складки',
+   desc:'Полотно піднімається у мʼякі горизонтальні складки — декоративність класичної штори з керуванням, як у ролети. Тканини від легкого тюлю до Black Out.',
+   facts:[['Системи','Закриті: на стулку, проємні'],['Управління','Ланцюгове'],['Фіксація','Без фіксації, волосінь, магніти'],['Монтаж','Стіновий, стельовий']],
+   feats:['Мʼякі складки замість рівного полотна','Мінімальна ширина виробу — від 360 мм','Комбінуються з тюлем і портьєрами','Тканини різного рівня затемнення'],
+   price:'907', unit:'грн', note:'Ціна вказана за розміру 800×1100 мм', models:ROMAN},
+  {name:'Жалюзі деревʼяні', tab:'Деревʼяні', kind:'дерево, бамбук',
+   desc:'Ламелі з канадської липи, пробкового дерева або бамбуку на алюмінієвому карнизі. Фінішні лакофарбові покриття підкреслюють природний малюнок і захищають ламелі.',
+   facts:[['Ширина ламелей','25 мм, 50 мм'],['Матеріал ламелей','Дерево'],['Матеріал карниза','Алюміній'],['Управління','Мотузкова або ланцюгова система, електропривод']],
+   feats:['Тепло- та звукоізоляційні властивості деревини','Довгі планки до 2,4–2,6 м зберігають геометрію','Горизонтальні, вертикальні та рулонні виконання','Опційно — пульт ДК або «Розумний дім»'],
+   price:'891', unit:'грн/м²', note:'Ціна вказана за квадратний метр', models:WOOD},
+  {name:'Жалюзі горизонтальні', tab:'Горизонтальні', kind:'алюміній, пластик',
+   desc:'Горизонтальні ламелі, які повертаються навколо своєї осі та піднімаються вгору. Класичне рішення для квартир, офісів і громадських приміщень.',
+   facts:[['Ширина ламелей','16 мм, 25 мм, 50 мм'],['Матеріал ламелей','Алюміній, пластик'],['Управління','Ручка-тростина, шнур'],['Монтаж','На стулку, в проєм, на стіну']],
+   feats:['Точне регулювання кута падіння світла','Компактні — не займають місця на підвіконні','Стійкі до вологи: підходять для кухні та санвузла','Виконання під колір профілю вікна'],
+   price:'540', unit:'грн/м²', note:'Ціна вказана за квадратний метр', models:HORIZ},
+  {name:'Жалюзі вертикальні', tab:'Вертикальні', kind:'тканина, пластик',
+   desc:'Довгі вертикальні ламелі підвішені на верхній напрямній, повертаються навколо осі й зсуваються вбік, повністю відкриваючи вікно. Рішення для великих вікон і панорамного скління.',
+   facts:[['Ширина ламелей','89 мм, 127 мм'],['Матеріал ламелей','Тканина, пластик'],['Управління','Ланцюжок і шнур, пульт ДК'],['Монтаж','Стіновий, стельовий']],
+   feats:['Оптимальні для широких і високих вікон','Зсуваються в один бік або розходяться по центру','Візуально піднімають висоту приміщення','Ламелі легко замінити окремо'],
+   price:'483', unit:'грн/м²', note:'Ціна вказана за квадратний метр', models:VERT},
+  {name:'Мансардні рулонні штори', tab:'Мансардні', kind:'для похилих вікон',
+   desc:'Системи для похилих мансардних вікон: полотно фіксується у бокових напрямних, тому не провисає під будь-яким кутом нахилу. Виготовляємо під конкретну модель мансардного вікна.',
+   facts:[['Системи','Касетні з напрямними'],['Матеріал системи','Алюміній'],['Управління','Ланцюжок, гриф, пульт ДК, радіовимикач'],['Монтаж','На мансардні вікна']],
+   feats:['Полотно щільно прилягає при будь-якому куті нахилу','Black Out для спальні та дитячої під даховим вікном','Знижують нагрів мансарди влітку','Керування грифом або пультом — без драбини'],
+   price:'3 104', unit:'грн', note:'Ціна вказана за розміру 500×1400 мм', models:MANSARD}
+];
+
+function BlHero(){
+  return React.createElement('section',{className:'pw-hero',id:'product-hero','data-screen-label':'Хіро жалюзі'},
+    React.createElement('div',{className:'pw-crumbs'},
+      React.createElement('nav',{className:'crumbs'},
+        React.createElement('a',{href:'index.html'},'Головна'),
+        React.createElement('span',null,'/'),
+        React.createElement('span',null,'Жалюзі та рулонні штори')
+      )
+    ),
+    React.createElement('div',{className:'pw-hero-inner'},
+      React.createElement('div',{className:'pw-photo'},
+        React.createElement(Photo,{id:'bl-hero',placeholder:'Фото рулонної штори або жалюзі в інтерʼєрі',shape:'rect'})
+      ),
+      React.createElement('div',{className:'pw-txt'},
+        React.createElement('div',{className:'pw-plate'},
+          React.createElement('h1',null,React.createElement('em',null,'Жалюзі'),' та рулонні штори')
+        ),
+        React.createElement('p',{className:'pw-lede'},'Жалюзі — це пристрій для захисту приміщень від сонячних променів, атмосферних осадів і пилу, регулювання потоків повітря та захисту приміщення від несанкціонованого доступу. Виготовляємо вісім типів систем під розмір вашого вікна — з замірами, доставкою та монтажем'),
+        React.createElement('div',{className:'pw-diia'},
+          React.createElement('img',{src:'assets/images/diia-logo.webp',alt:'Дія',loading:'lazy'}),
+          React.createElement('span',null,'Працюємо за програмою єВідновлення')
+        )
+      )
+    )
+  );
+}
+
+function rollId(md){ return 'roll-'+md.img.replace(/^.*\//,'').replace('.jpg',''); }
+function BlCatalog(){
+  const [i,setI] = React.useState(0);
+  const [m,setM] = React.useState(0);
+  const t = TYPES[i];
+  const models = t.models;
+  const mi = models ? Math.min(m, models.length-1) : 0;
+  const md = models ? models[mi] : null;
+  function pickType(k){ setI(k); setM(0); }
+  return React.createElement('section',{className:'bl',id:'blinds-catalog','data-screen-label':'Каталог жалюзі'},
+    React.createElement('div',{className:'bl-inner'},
+      React.createElement('div',{className:'bl-head'},
+        React.createElement('div',null,
+          React.createElement('p',{className:'pw-eyebrow'},'Жалюзі та штори від ЕКІПАЖ'),
+          React.createElement('h2',{className:'pw-h2'},'Види штор і жалюзі')
+        ),
+        React.createElement('p',{className:'bl-note'},'Вісім типів систем сонцезахисту. Кожну виготовляємо під розмір вікна: підбираємо систему, тканину й тип крепління, робимо замір і встановлюємо')
+      ),
+      React.createElement('div',{className:'bl-tabs',role:'tablist','aria-label':'Тип системи'},
+        TYPES.map((x,k)=>React.createElement('button',{type:'button',key:x.name,role:'tab','aria-selected':k===i,className:'bl-tab'+(k===i?' on':''),onClick:()=>pickType(k)},
+          React.createElement('span',null,x.tab),
+          React.createElement('i',null,x.kind)
+        ))
+      ),
+      React.createElement('div',{className:'bl-panel'},
+        React.createElement('div',{className:'bl-cap'},
+          React.createElement('h3',null,t.name),
+          React.createElement('em',null,String(i+1).padStart(2,'0')+' / '+String(TYPES.length).padStart(2,'0'))
+        ),
+        models && React.createElement('div',{className:'bl-intro'},
+          React.createElement('p',{className:'bl-desc'},t.desc),
+          React.createElement('ul',{className:'bl-list'}, t.feats.map(f=>React.createElement('li',{key:f},f)))
+        ),
+        models
+          ? React.createElement('div',{className:'bl-stage models'},
+              React.createElement('div',{className:'bl-models',role:'tablist','aria-label':'Модель'},
+                models.map((x,k)=>React.createElement('button',{type:'button',key:x.name,role:'tab','aria-selected':k===mi,className:'bl-model'+(k===mi?' on':''),onClick:()=>setM(k)},
+                  React.createElement('b',null,x.name),
+                  React.createElement('i',null,x.price?'від '+x.price+' '+(x.unit||'грн'):'розрахунок')
+                ))
+              ),
+              React.createElement('div',{className:'bl-shot'},
+                React.createElement(Photo,{key:md.img,id:rollId(md),placeholder:'Фото: '+t.tab+' · '+md.name,shape:'rect'}),
+                React.createElement('em',null,md.name)
+              ),
+              React.createElement('div',{className:'bl-side'},
+                React.createElement('p',{className:'bl-col-title'},'Технічні характеристики · '+md.name),
+                md.specs.map(([k,v])=>React.createElement('div',{className:'bl-row',key:k},
+                  React.createElement('span',null,k),
+                  React.createElement('b',null,v)
+                )),
+                md.size && React.createElement('div',{className:'bl-row'},
+                  React.createElement('span',null,'Ціна вказана за розміру'),
+                  React.createElement('b',null,md.size)
+                )
+              )
+            )
+          : React.createElement('div',{className:'bl-stage'},
+              React.createElement('div',{className:'bl-body'},
+                React.createElement('p',{className:'bl-desc'},t.desc),
+                React.createElement('p',{className:'bl-col-title'},'Характеристики'),
+                t.facts.map(([k,v])=>React.createElement('div',{className:'bl-row',key:k},
+                  React.createElement('span',null,k),
+                  React.createElement('b',null,v)
+                ))
+              ),
+              React.createElement('div',{className:'bl-side'},
+                React.createElement('p',{className:'bl-col-title'},'Особливості'),
+                React.createElement('ul',{className:'bl-list'}, t.feats.map(f=>React.createElement('li',{key:f},f))),
+                React.createElement('p',{className:'bl-empty'},'Модельний ряд додаємо — напишіть, які моделі показувати в цьому типі')
+              )
+            ),
+        React.createElement('div',{className:'bl-foot'},
+          React.createElement('div',{className:'bl-price'},
+            React.createElement('em',null,models ? (md.size ? md.name+' · за розміру '+md.size : md.price ? md.name+' · ціна за квадратний метр' : md.name+' · розраховуємо після замірів') : t.note),
+            (models ? md.price : t.price)
+              ? React.createElement('b',null,'від '+(models?md.price:t.price),React.createElement('i',null,models?(md.unit||'грн'):t.unit))
+              : React.createElement('b',null,'Індивідуальний розрахунок')
+          ),
+          React.createElement(Button,{variant:'primary',size:'lg',icon:'arrow-right',iconPosition:'right',onClick:openQuote},'Замовити зараз')
+        )
+      )
+    )
+  );
+}
+
+function BlPartners(){
+  const logos = [
+    {src:'assets/images/ekipazh-logo.svg',alt:'ЕКІПАЖ',h:52},
+    {src:'assets/images/partner-veka-logo.webp',alt:'VEKA',h:48},
+    {src:'assets/images/partner-miroplast-logo.png',alt:'Miroplast',h:40},
+    {src:'assets/images/partner-guardian-industries-logo.png',alt:'Guardian Industries',h:42},
+    {src:'assets/images/partner-procural-logo.webp',alt:'Procural aluminium systems',h:40}
+  ];
+  const row = (k)=>logos.map((l,i)=>React.createElement('div',{className:'pp-item',key:k+i},
+    React.createElement('img',{src:l.src,alt:l.alt,loading:'lazy',style:{maxHeight:l.h+'px'}})
+  ));
+  return React.createElement('section',{className:'pp',id:'partners-section','data-screen-label':'Партнери'},
+    React.createElement('h2',null,'Наші партнери'),
+    React.createElement('div',{className:'pp-strip'},
+      React.createElement('div',{className:'pp-track'}, row('a'), row('b'))
+    )
+  );
+}
+
+function App(){
+  return React.createElement(React.Fragment,null,
+    React.createElement(Header),
+    React.createElement(BlHero),
+    React.createElement(BlCatalog),
+    React.createElement(BlPartners),
+    React.createElement(Certificates),
+    React.createElement(MapBlock),
+    React.createElement(Footer),
+    React.createElement(QuoteModal)
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>
