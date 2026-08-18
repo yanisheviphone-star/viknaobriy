@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap');
+:root{
+--font-sans:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
