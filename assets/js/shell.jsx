@@ -251,6 +251,8 @@ function QuoteForm({heading,lede,cta,onClose}){
   const [ccOpen,setCcOpen] = React.useState(false);
   const [svcOpen,setSvcOpen] = React.useState(false);
   const [errors,setErrors] = React.useState({});
+  const [sending,setSending] = React.useState(false);
+  const [submitError,setSubmitError] = React.useState('');
   const nameOk = name.trim().length > 1;
   const phoneOk = phone.length === country.len;
   const serviceOk = !!service;
@@ -259,13 +261,33 @@ function QuoteForm({heading,lede,cta,onClose}){
     phone: errors.phone && !phoneOk ? errors.phone : null,
     service: errors.service && !serviceOk ? errors.service : null
   };
-  function submit(){
+  async function submit(){
     const errs = {};
     if(!nameOk) errs.name = "Вкажіть ім'я";
     if(!phoneOk) errs.phone = 'Введіть ' + country.len + ' цифр номера';
     if(!serviceOk) errs.service = 'Оберіть послугу';
     setErrors(errs);
-    if(Object.keys(errs).length === 0) setSent(true);
+    if(Object.keys(errs).length > 0) return;
+    setSubmitError('');
+    setSending(true);
+    try{
+      const res = await fetch('/api/submit-lead',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          name: name.trim(),
+          phone: country.dial + ' ' + phFormat(phone,country),
+          service,
+          page: document.documentElement.dataset.page || document.title
+        })
+      });
+      if(!res.ok) throw new Error('submit-lead failed: ' + res.status);
+      setSent(true);
+    }catch(e){
+      setSubmitError('Не вдалося надіслати заявку. Спробуйте ще раз або зателефонуйте нам');
+    }finally{
+      setSending(false);
+    }
   }
   const star = (ok) => ok ? null : React.createElement('i',null,'*');
   if(sent) return React.createElement('div',{className:'modal-success'},
@@ -319,7 +341,10 @@ function QuoteForm({heading,lede,cta,onClose}){
       err.service ? React.createElement('span',{className:'msg'},err.service) : null
     ),
     React.createElement('div',{className:'modal-submit'},
-      React.createElement(Button,{variant:'secondary',size:'lg',icon:'arrow-right',iconPosition:'right',onClick:submit},cta||'Відправити заявку')
+      submitError ? React.createElement('p',{className:'submit-error'},submitError) : null,
+      React.createElement(Button,{variant:'secondary',size:'lg',icon:sending?null:'arrow-right',iconPosition:'right',disabled:sending,onClick:submit},
+        sending ? React.createElement(React.Fragment,null, React.createElement('span',{className:'btn-spinner','aria-hidden':'true'}), 'Надсилаємо…') : (cta||'Відправити заявку')
+      )
     )
   );
 }

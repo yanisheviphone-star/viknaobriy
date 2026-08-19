@@ -203,6 +203,9 @@ a:hover{color:var(--color-link-hover)}
 .picker-btn:hover{background:var(--gray-50)}
 .modal-submit{margin-top:6px}
 .modal-submit button{width:100%}
+.submit-error{font-size:13px;color:var(--color-danger);margin:0 0 12px}
+.btn-spinner{width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;display:inline-block;animation:btn-spin .65s linear infinite}
+@keyframes btn-spin{to{transform:rotate(360deg)}}
 .modal-success{padding:8px 0 4px}
 .modal-success .tick{width:56px;height:56px;border:var(--border-width-strong) solid var(--color-primary);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
 .modal-success h2{font-size:24px;margin-bottom:12px}
