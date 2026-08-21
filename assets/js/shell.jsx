@@ -108,9 +108,9 @@ function Header(){
       ),
       React.createElement('div',{className:'header-right'},
         React.createElement('div',{className:'socials'},
-          React.createElement('a',{href:'#','aria-label':'Instagram'}, React.createElement(InstagramIcon)),
-          React.createElement('a',{href:'#','aria-label':'Facebook'}, React.createElement(FacebookIcon)),
-          React.createElement('a',{href:'#','aria-label':'Twitter'}, React.createElement(TwitterIcon))
+          React.createElement('a',{href:'https://www.instagram.com/vikna_obriy?igsh=bXNrNzM2Ym9vc29q&utm_source=ig_contact_invite',target:'_blank',rel:'noopener','aria-label':'Instagram'}, React.createElement(InstagramIcon)),
+          React.createElement('a',{href:'https://www.facebook.com/share/1CsLXBLn8r/',target:'_blank',rel:'noopener','aria-label':'Facebook'}, React.createElement(FacebookIcon)),
+          React.createElement('a',{href:'https://x.com/viknaobriy',target:'_blank',rel:'noopener','aria-label':'Twitter'}, React.createElement(TwitterIcon))
         ),
         React.createElement(Button,{variant:'secondary',size:'md',icon:'phone',iconPosition:'left',onClick:openQuote},"Зв'язатись з нами")
       ),
@@ -133,9 +133,9 @@ function Header(){
           React.createElement('a',{href:'index.html#standards-section',onClick:()=>setOpen(false)},'Гарантії')
         ),
         React.createElement('div',{className:'mobile-socials'},
-          React.createElement('a',{href:'#','aria-label':'Instagram'}, React.createElement(InstagramIcon)),
-          React.createElement('a',{href:'#','aria-label':'Facebook'}, React.createElement(FacebookIcon)),
-          React.createElement('a',{href:'#','aria-label':'Twitter'}, React.createElement(TwitterIcon))
+          React.createElement('a',{href:'https://www.instagram.com/vikna_obriy?igsh=bXNrNzM2Ym9vc29q&utm_source=ig_contact_invite',target:'_blank',rel:'noopener','aria-label':'Instagram'}, React.createElement(InstagramIcon)),
+          React.createElement('a',{href:'https://www.facebook.com/share/1CsLXBLn8r/',target:'_blank',rel:'noopener','aria-label':'Facebook'}, React.createElement(FacebookIcon)),
+          React.createElement('a',{href:'https://x.com/viknaobriy',target:'_blank',rel:'noopener','aria-label':'Twitter'}, React.createElement(TwitterIcon))
         ),
         React.createElement('div',{className:'mobile-cta'},
           React.createElement(Button,{variant:'secondary',size:'md',icon:'phone',iconPosition:'left',onClick:openQuote},"Зв'язатись з нами")
@@ -416,9 +416,9 @@ function Footer(){
             React.createElement('img',{src:'assets/images/ekipazh-logo.svg',alt:'ЕКІПАЖ'})
           ),
           React.createElement('div',{className:'f-socials'},
-            React.createElement('a',{href:'#','aria-label':'Instagram'}, React.createElement(InstagramIcon)),
-            React.createElement('a',{href:'#','aria-label':'Facebook'}, React.createElement(FacebookIcon)),
-            React.createElement('a',{href:'#','aria-label':'Twitter'}, React.createElement(TwitterIcon))
+            React.createElement('a',{href:'https://www.instagram.com/vikna_obriy?igsh=bXNrNzM2Ym9vc29q&utm_source=ig_contact_invite',target:'_blank',rel:'noopener','aria-label':'Instagram'}, React.createElement(InstagramIcon)),
+            React.createElement('a',{href:'https://www.facebook.com/share/1CsLXBLn8r/',target:'_blank',rel:'noopener','aria-label':'Facebook'}, React.createElement(FacebookIcon)),
+            React.createElement('a',{href:'https://x.com/viknaobriy',target:'_blank',rel:'noopener','aria-label':'Twitter'}, React.createElement(TwitterIcon))
           )
         ),
         React.createElement('div',{className:'f-col'},
