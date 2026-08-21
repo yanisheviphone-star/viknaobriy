@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk" data-page="Політика конфіденційності">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Політика конфіденційності — ВІКНА-ОБРІЙ</title>
+<meta name="description" content="Політика конфіденційності ВІКНА-ОБРІЙ — порядок збору, використання, зберігання та захисту персональних даних користувачів сайту.">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/colors.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/typography.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/radius.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/tokens/base.css">
+<link rel="stylesheet" href="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/styles.css">
+<script src="_ds/design-system-c698ec3a-631e-4151-b502-814480bcacfb/_ds_bundle.js"></script>
+<script src="assets/js/image-slot.js"></script>
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.legal-hero{padding:64px 48px 40px;background:var(--white)}
+.legal-hero-inner{max-width:760px;margin:0 auto}
+.legal-crumbs{display:flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:13px;color:var(--color-text-tertiary);margin:0 0 28px}
+.legal-crumbs a{color:var(--color-text-secondary);text-decoration:none;transition:color .15s ease}
+.legal-crumbs a:hover{color:var(--color-primary)}
+.legal-crumbs span{color:var(--color-text-tertiary)}
+.legal-eyebrow{font-family:var(--font-sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--color-primary);margin:0 0 14px}
+.legal-hero h1{font-family:var(--font-sans);font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.15;letter-spacing:-.02em;color:var(--color-text);margin:0 0 14px;text-wrap:balance}
+.legal-updated{font-family:var(--font-sans);font-size:14px;color:var(--color-text-tertiary);margin:0}
+.legal-body{padding:8px 48px 96px;background:var(--white);border-top:1px solid var(--color-border)}
+.legal-body-inner{max-width:760px;margin:0 auto}
+.legal-intro{padding-top:40px}
+.legal-intro p{font-family:var(--font-sans);font-size:var(--type-body-lg-size);line-height:var(--type-body-lg-lh);color:var(--color-text-secondary);margin:0 0 20px}
+.legal-intro p:last-child{margin-bottom:0}
+.legal-section{margin-top:40px;padding-top:40px;border-top:1px solid var(--color-border)}
+.legal-section h2{font-family:var(--font-sans);font-weight:700;font-size:clamp(19px,1.8vw,23px);line-height:1.3;letter-spacing:-.01em;color:var(--color-text);margin:0 0 18px;text-wrap:pretty}
+.legal-section p{font-family:var(--font-sans);font-size:var(--type-body-md-size);line-height:var(--type-body-md-lh);color:var(--color-text-secondary);margin:0 0 16px;text-wrap:pretty}
+.legal-section p:last-child{margin-bottom:0}
+.legal-section ul{margin:0 0 16px;padding:0 0 0 22px;display:flex;flex-direction:column;gap:10px}
+.legal-section ul:last-child{margin-bottom:0}
+.legal-section li{font-family:var(--font-sans);font-size:var(--type-body-md-size);line-height:var(--type-body-md-lh);color:var(--color-text-secondary);text-wrap:pretty}
+.legal-section li::marker{color:var(--color-primary)}
+.legal-close{margin-top:40px;padding-top:40px;border-top:1px solid var(--color-border)}
+.legal-close p{font-family:var(--font-sans);font-size:var(--type-body-md-size);line-height:1.5;color:var(--color-text);font-weight:600;margin:0}
+.legal-close .legal-updated-final{margin-top:18px;font-weight:400;color:var(--color-text-tertiary);font-size:14px}
+@media (max-width:900px){
+.legal-hero{padding:48px 24px 32px}
+.legal-body{padding:8px 24px 72px}
+.legal-intro{padding-top:32px}
+.legal-section,.legal-close{margin-top:32px;padding-top:32px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react" src="assets/js/shell.jsx"></script>
+<script type="text/babel" data-presets="react">
+function P(text){ return React.createElement('p',null,text); }
+function LI(items){
+  return React.createElement('ul',null, items.map((t,i)=>React.createElement('li',{key:i},t)));
+}
+function Section({num,title,children}){
+  return React.createElement('section',{className:'legal-section'},
+    React.createElement('h2',null, num+'. '+title),
+    children
+  );
+}
+
+function PrivacyHero(){
+  return React.createElement('div',{className:'legal-hero'},
+    React.createElement('div',{className:'legal-hero-inner'},
+      React.createElement('nav',{className:'legal-crumbs'},
+        React.createElement('a',{href:'index.html'},'Головна'),
+        React.createElement('span',null,'/'),
+        React.createElement('span',null,'Політика конфіденційності')
+      ),
+      React.createElement('p',{className:'legal-eyebrow'},'ВІКНА-ОБРІЙ'),
+      React.createElement('h1',null,'Політика конфіденційності'),
+      React.createElement('p',{className:'legal-updated'},'Дата останнього оновлення: 21 серпня 2026 року')
+    )
+  );
+}
+
+function PrivacyBody(){
+  return React.createElement('div',{className:'legal-body'},
+    React.createElement('div',{className:'legal-body-inner'},
+      React.createElement('div',{className:'legal-intro'},
+        P('Ця Політика конфіденційності визначає порядок збору, використання, зберігання та захисту персональних даних користувачів вебсайту ВІКНА-ОБРІЙ.'),
+        P('Використовуючи сайт та/або надсилаючи заявку через форми на сайті, користувач підтверджує, що ознайомився з цією Політикою конфіденційності та погоджується на обробку наданих ним персональних даних відповідно до її умов та чинного законодавства України.')
+      ),
+
+      React.createElement(Section,{num:1,title:'Які дані ми збираємо'},
+        P('Під час використання сайту та заповнення форм ми можемо отримувати такі дані:'),
+        LI([
+          "ім'я",
+          'номер телефону',
+          'обрану послугу або товар',
+          'іншу інформацію, яку користувач добровільно зазначає у формі заявки',
+          'дату та час надсилання заявки',
+          'технічну інформацію про використання сайту, зокрема IP-адресу, тип пристрою та браузера, файли cookie та інформацію про взаємодію із сайтом — якщо відповідні технології використовуються на сайті.'
+        ]),
+        P('Ми не збираємо через форми сайту дані, які не є необхідними для обробки звернення користувача.')
+      ),
+
+      React.createElement(Section,{num:2,title:'Мета збору та використання даних'},
+        P('Персональні дані користувачів можуть використовуватися для:'),
+        LI([
+          'приймання та обробки заявок',
+          "зв'язку з користувачем за вказаним номером телефону",
+          'надання консультацій щодо товарів та послуг',
+          'уточнення деталей замовлення',
+          'розрахунку вартості товарів або послуг',
+          'організації виконання замовлення',
+          'покращення якості обслуговування',
+          'забезпечення належної роботи та вдосконалення сайту',
+          'ведення статистики та аналітики, якщо на сайті використовуються відповідні сервіси',
+          'виконання вимог чинного законодавства України.'
+        ]),
+        P('Персональні дані не використовуються для цілей, несумісних із метою їх отримання.')
+      ),
+
+      React.createElement(Section,{num:3,title:'Обробка заявок'},
+        P('Після заповнення форми на сайті інформація, надана користувачем, передається для обробки звернення представниками ВІКНА-ОБРІЙ.'),
+        P("Для оперативного отримання та обробки заявок можуть використовуватися сторонні технічні сервіси, зокрема CRM-системи, сервіси автоматизації, хостинг-провайдери, месенджери або Telegram-боти."),
+        P('Такі сервіси можуть отримувати доступ лише до інформації, необхідної для виконання відповідних функцій.')
+      ),
+
+      React.createElement(Section,{num:4,title:'Передача персональних даних третім особам'},
+        P('ВІКНА-ОБРІЙ не продає персональні дані користувачів та не передає їх третім особам для їхніх власних рекламних або маркетингових цілей.'),
+        P('Дані можуть передаватися третім особам лише у випадках, коли це необхідно:'),
+        LI([
+          'для забезпечення роботи сайту',
+          'для отримання та обробки заявки',
+          'для надання користувачеві замовленої послуги',
+          'постачальникам технічних та інформаційних сервісів',
+          'за згодою користувача',
+          'у випадках, передбачених чинним законодавством України.'
+        ])
+      ),
+
+      React.createElement(Section,{num:5,title:'Файли Cookie'},
+        P('Сайт може використовувати файли cookie та аналогічні технології.'),
+        P('Cookie — це невеликі файли, які можуть зберігатися на пристрої користувача під час відвідування вебсайту.'),
+        P('Вони можуть використовуватися для:'),
+        LI([
+          'забезпечення коректної роботи сайту',
+          'збереження налаштувань користувача',
+          'аналізу відвідуваності',
+          'отримання статистичної інформації',
+          'покращення зручності користування сайтом.'
+        ]),
+        P('Користувач може самостійно видалити, обмежити або заборонити використання cookie через налаштування свого браузера. У такому випадку окремі функції сайту можуть працювати некоректно.')
+      ),
+
+      React.createElement(Section,{num:6,title:'Захист персональних даних'},
+        P('Ми вживаємо розумних організаційних та технічних заходів для захисту персональних даних користувачів від:'),
+        LI(['несанкціонованого доступу','незаконного використання','зміни','розголошення','втрати','знищення.']),
+        P('Доступ до персональних даних надається лише особам та сервісам, яким така інформація необхідна для обробки звернень і виконання відповідних функцій.'),
+        P('Водночас жоден спосіб передачі або зберігання інформації в мережі Інтернет не може гарантувати абсолютну безпеку.')
+      ),
+
+      React.createElement(Section,{num:7,title:'Строк зберігання персональних даних'},
+        P('Персональні дані зберігаються протягом строку, необхідного для обробки звернення, виконання замовлення та досягнення інших цілей, для яких вони були отримані.'),
+        P('Дані також можуть зберігатися довше, якщо це необхідно відповідно до вимог чинного законодавства України.'),
+        P('Після зникнення необхідності в обробці персональні дані можуть бути видалені або знеособлені.')
+      ),
+
+      React.createElement(Section,{num:8,title:'Права користувача'},
+        P('Користувач має право відповідно до законодавства України:'),
+        LI([
+          'отримувати інформацію про обробку своїх персональних даних',
+          'вимагати уточнення або виправлення неточних даних',
+          'звернутися із запитом щодо видалення своїх персональних даних у передбачених законом випадках',
+          'відкликати згоду на обробку персональних даних, якщо обробка здійснюється на підставі такої згоди',
+          'захищати свої права та законні інтереси у встановленому законодавством порядку.'
+        ]),
+        P('Для реалізації цих прав користувач може звернутися до ВІКНА-ОБРІЙ за контактними даними, розміщеними на сайті.')
+      ),
+
+      React.createElement(Section,{num:9,title:'Сторонні сервіси та посилання'},
+        P('Сайт може містити посилання на сторонні вебсайти, соціальні мережі, месенджери, карти та інші зовнішні сервіси.'),
+        P('Після переходу на сторонній ресурс обробка інформації здійснюється відповідно до правил та політики конфіденційності відповідного сервісу.'),
+        P('ВІКНА-ОБРІЙ не контролює політики конфіденційності сторонніх вебресурсів.')
+      ),
+
+      React.createElement(Section,{num:10,title:'Згода користувача'},
+        P('Надсилаючи форму на сайті, користувач добровільно надає зазначені ним персональні дані для обробки його звернення.'),
+        P('Перед відправленням форми користувачеві рекомендується ознайомитися з цією Політикою конфіденційності.')
+      ),
+
+      React.createElement(Section,{num:11,title:'Зміни до Політики конфіденційності'},
+        P("ВІКНА-ОБРІЙ може вносити зміни та доповнення до цієї Політики конфіденційності у зв'язку зі зміною роботи сайту, використовуваних сервісів або вимог законодавства."),
+        P('Актуальна редакція Політики конфіденційності публікується на відповідній сторінці вебсайту.')
+      ),
+
+      React.createElement(Section,{num:12,title:'Контактна інформація'},
+        P("З питань, пов'язаних з обробкою, зберіганням або видаленням персональних даних, користувач може звернутися до ВІКНА-ОБРІЙ за контактними даними, зазначеними на вебсайті.")
+      ),
+
+      React.createElement('div',{className:'legal-close'},
+        React.createElement('p',null,'ВІКНА-ОБРІЙ'),
+        React.createElement('p',null,'Україна'),
+        React.createElement('p',{className:'legal-updated-final'},'Дата останнього оновлення: 21 серпня 2026 року.')
+      )
+    )
+  );
+}
+
+function App(){
+  return React.createElement(React.Fragment,null,
+    React.createElement(Header),
+    React.createElement(PrivacyHero),
+    React.createElement(PrivacyBody),
+    React.createElement(Footer),
+    React.createElement(QuoteModal)
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>
