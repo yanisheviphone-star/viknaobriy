@@ -1,3 +1,5 @@
+const { getAllChatIds, removeChatId } = require('../lib/telegram-chats');
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -23,9 +25,25 @@ module.exports = async function handler(req, res) {
   }
 
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) {
-    console.error('submit-lead: missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID');
+  if (!token) {
+    console.error('submit-lead: missing TELEGRAM_BOT_TOKEN');
+    res.status(500).json({ ok: false, error: 'Сервіс тимчасово недоступний' });
+    return;
+  }
+
+  let chatIds = [];
+  try {
+    chatIds = await getAllChatIds();
+  } catch (err) {
+    console.error('submit-lead: failed to read chat ids from KV', err);
+  }
+  // Safety net only: covers the window before anyone has messaged the bot
+  // yet (or KV being briefly unreachable), so a lead is never sent nowhere.
+  if (chatIds.length === 0 && process.env.TELEGRAM_CHAT_ID) {
+    chatIds = [process.env.TELEGRAM_CHAT_ID];
+  }
+  if (chatIds.length === 0) {
+    console.error('submit-lead: no Telegram recipients configured');
     res.status(500).json({ ok: false, error: 'Сервіс тимчасово недоступний' });
     return;
   }
@@ -50,23 +68,32 @@ module.exports = async function handler(req, res) {
     `Дата і час: ${sentAt}`
   ].join('\n');
 
-  try {
+  const results = await Promise.allSettled(chatIds.map(async (id) => {
     const tgRes = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text })
+      body: JSON.stringify({ chat_id: id, text })
     });
 
     if (!tgRes.ok) {
-      const errText = await tgRes.text();
-      console.error('submit-lead: Telegram API error', tgRes.status, errText);
-      res.status(502).json({ ok: false, error: 'Не вдалося надіслати заявку' });
-      return;
+      const errBody = await tgRes.json().catch(() => null);
+      const description = (errBody && errBody.description) || '';
+      // Recipient blocked the bot or the chat no longer exists — stop
+      // trying to notify them on every future lead.
+      if (tgRes.status === 403 || /chat not found/i.test(description)) {
+        removeChatId(id).catch(() => {});
+      }
+      throw new Error(`Telegram ${tgRes.status}: ${description || 'unknown error'}`);
     }
+  }));
 
-    res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error('submit-lead: failed to reach Telegram API', err);
+  const failed = results.filter((r) => r.status === 'rejected');
+  failed.forEach((r) => console.error('submit-lead: failed to notify one recipient', r.reason));
+
+  if (failed.length === results.length) {
     res.status(502).json({ ok: false, error: 'Не вдалося надіслати заявку' });
+    return;
   }
+
+  res.status(200).json({ ok: true });
 };
