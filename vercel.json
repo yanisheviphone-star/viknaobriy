@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/okna-i-dveri-harkov", "destination": "/index-ru.html" },
+    { "source": "/plastikovye-okna-harkov", "destination": "/pvc-windows-ru.html" },
+    { "source": "/plastikovye-dveri-harkov", "destination": "/doors-ru.html" },
+    { "source": "/steklopakety-harkov", "destination": "/glass-units-ru.html" },
+    { "source": "/otkosy-na-okna-harkov", "destination": "/window-slopes-ru.html" },
+    { "source": "/zhalyuzi-i-rulonnye-shtory-harkov", "destination": "/blinds-and-roller-shades-ru.html" }
+  ]
+}

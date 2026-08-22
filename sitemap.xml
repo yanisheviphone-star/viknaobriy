@@ -1,22 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.vikna-obriy.com/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/okna-i-dveri-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/"/>
+  </url>
+  <url>
+    <loc>https://www.vikna-obriy.com/okna-i-dveri-harkov</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/okna-i-dveri-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/"/>
   </url>
   <url>
     <loc>https://www.vikna-obriy.com/pvc-windows.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/pvc-windows.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/plastikovye-okna-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/pvc-windows.html"/>
+  </url>
+  <url>
+    <loc>https://www.vikna-obriy.com/plastikovye-okna-harkov</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/pvc-windows.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/plastikovye-okna-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/pvc-windows.html"/>
   </url>
   <url>
     <loc>https://www.vikna-obriy.com/doors.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/doors.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/plastikovye-dveri-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/doors.html"/>
+  </url>
+  <url>
+    <loc>https://www.vikna-obriy.com/plastikovye-dveri-harkov</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/doors.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/plastikovye-dveri-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/doors.html"/>
   </url>
   <url>
     <loc>https://www.vikna-obriy.com/glass-units.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/glass-units.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/steklopakety-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/glass-units.html"/>
+  </url>
+  <url>
+    <loc>https://www.vikna-obriy.com/steklopakety-harkov</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/glass-units.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/steklopakety-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/glass-units.html"/>
   </url>
   <url>
     <loc>https://www.vikna-obriy.com/window-slopes.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/window-slopes.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/otkosy-na-okna-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/window-slopes.html"/>
+  </url>
+  <url>
+    <loc>https://www.vikna-obriy.com/otkosy-na-okna-harkov</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/window-slopes.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/otkosy-na-okna-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/window-slopes.html"/>
   </url>
   <url>
     <loc>https://www.vikna-obriy.com/blinds-and-roller-shades.html</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/blinds-and-roller-shades.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/zhalyuzi-i-rulonnye-shtory-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/blinds-and-roller-shades.html"/>
+  </url>
+  <url>
+    <loc>https://www.vikna-obriy.com/zhalyuzi-i-rulonnye-shtory-harkov</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.vikna-obriy.com/blinds-and-roller-shades.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.vikna-obriy.com/zhalyuzi-i-rulonnye-shtory-harkov"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vikna-obriy.com/blinds-and-roller-shades.html"/>
   </url>
   <url>
     <loc>https://www.vikna-obriy.com/privacy-policy.html</loc>

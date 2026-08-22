@@ -1,5 +1,78 @@
 const { Button, Icon } = window.DesignSystem_c698ec;
 Object.assign(window,{Button,Icon});
+
+// Language is read from the page itself (<html lang="uk|ru">) — no cookies,
+// no IP/browser-based redirects. Each language is a distinct static page;
+// this only controls which strings the SHARED components (header, footer,
+// quote form) render on that page.
+function currentLang(){ return document.documentElement.lang === 'ru' ? 'ru' : 'uk'; }
+const I18N = {
+  uk: {
+    location: 'м. Харків, бульвар Дмитра Антоновича 2',
+    navHome: 'Головна', navServices: 'Наші Послуги', navWarranty: 'Гарантії', contactCta: "Зв'язатись з нами",
+    burgerLabel: 'Меню', switchTo: 'RU',
+    brandLabel: 'Магазин', mfrLabel: 'виробник',
+    brandNote: 'Металопластикові та алюмінієві конструкції під розмір вашого проєму. Виготовлення, доставка й монтаж по Харкову та області',
+    servicesColTitle: 'Послуги', contactsColTitle: 'Контакти', hoursColTitle: 'Графік роботи',
+    hoursNote: 'Перерва з 13:00–14:00', weekday: 'Пн–Пт', saturday: 'Сб', sunday: 'Нд', dayOff: 'вихідний',
+    copyright: '© 2026 ВІКНА-ОБРІЙ. Всі права захищені', privacyLink: 'Політика конфіденційності',
+    addr1: 'м. Харків, бульвар', addr2: 'Дмитра Антоновича, 2',
+    formHeadingDefault: 'Заповніть заявку на прорахунок',
+    formLedeDefault: 'Усі поля обов’язкові. Зв’яжемося протягом 24 годин, безкоштовно прорахуємо вартість і проконсультуємо',
+    ctaDefault: 'Відправити заявку', fieldName: "Ім'я", namePlaceholder: 'Олександр', fieldPhone: 'Телефон', fieldService: 'Послуга',
+    serviceChoose: 'Обрати послугу', errorName: "Вкажіть ім'я", errorPhoneUnit: 'Введіть ', errorPhoneSuffix: ' цифр номера',
+    errorService: 'Оберіть послугу', sendingLabel: 'Надсилаємо…',
+    submitErrorMsg: 'Не вдалося надіслати заявку. Спробуйте ще раз або зателефонуйте нам',
+    checkboxLabel: 'Погоджуюсь з обробкою персональних даних',
+    successTitle: 'Дякуємо за звернення',
+    successText: 'Ваша заявка успішно надіслана. Ми зв’яжемося з вами протягом 24 годин',
+    successSign: 'З любов’ю, ЕКІПАЖ', modalClose: 'Закрити',
+    tickerText: 'Працюємо за програмою єВідновлення',
+    certsHeading: 'Сертифікати якості', certsHint: 'Натисніть на сертифікат, щоб відкрити на повний екран',
+    lbClose: 'Закрити', lbPrev: 'Назад', lbNext: 'Вперед', mapTitlePrefix: 'Мапа — ', mapsHl: 'uk',
+    services: ['Металопластикові вікна','Виїзний офіс','Двері','Склопакети','Відкоси','Жалюзі та рулонні штори'],
+    footerServices: ['Металопластикові вікна','Двері','Склопакети','Відкоси','Жалюзі та рулонні штори','Виїзний офіс'],
+    serviceHrefs: {'Металопластикові вікна':'pvc-windows.html','Двері':'doors.html','Склопакети':'glass-units.html','Відкоси':'window-slopes.html','Жалюзі та рулонні штори':'blinds-and-roller-shades.html','Виїзний офіс':'index.html#services'}
+  },
+  ru: {
+    location: 'г. Харьков, бульвар Дмитрия Антоновича 2',
+    navHome: 'Главная', navServices: 'Наши услуги', navWarranty: 'Гарантии', contactCta: 'Связаться с нами',
+    burgerLabel: 'Меню', switchTo: 'UA',
+    brandLabel: 'Магазин', mfrLabel: 'производитель',
+    brandNote: 'Металлопластиковые и алюминиевые конструкции по размеру вашего проёма. Изготовление, доставка и монтаж по Харькову и области',
+    servicesColTitle: 'Услуги', contactsColTitle: 'Контакты', hoursColTitle: 'График работы',
+    hoursNote: 'Перерыв с 13:00–14:00', weekday: 'Пн–Пт', saturday: 'Сб', sunday: 'Вс', dayOff: 'выходной',
+    copyright: '© 2026 ВІКНА-ОБРІЙ. Все права защищены', privacyLink: 'Политика конфиденциальности',
+    addr1: 'г. Харьков, бульвар', addr2: 'Дмитрия Антоновича, 2',
+    formHeadingDefault: 'Оставьте заявку на расчёт',
+    formLedeDefault: 'Все поля обязательны. Свяжемся в течение 24 часов, бесплатно рассчитаем стоимость и проконсультируем',
+    ctaDefault: 'Отправить заявку', fieldName: 'Имя', namePlaceholder: 'Александр', fieldPhone: 'Телефон', fieldService: 'Услуга',
+    serviceChoose: 'Выбрать услугу', errorName: 'Укажите имя', errorPhoneUnit: 'Введите ', errorPhoneSuffix: ' цифр номера',
+    errorService: 'Выберите услугу', sendingLabel: 'Отправляем…',
+    submitErrorMsg: 'Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам',
+    checkboxLabel: 'Согласен(на) с обработкой персональных данных',
+    successTitle: 'Спасибо за обращение',
+    successText: 'Ваша заявка успешно отправлена. Мы свяжемся с вами в течение 24 часов',
+    successSign: 'С любовью, ЕКІПАЖ', modalClose: 'Закрыть',
+    tickerText: 'Работаем по программе «єВідновлення»',
+    certsHeading: 'Сертификаты качества', certsHint: 'Нажмите на сертификат, чтобы открыть на весь экран',
+    lbClose: 'Закрыть', lbPrev: 'Назад', lbNext: 'Вперёд', mapTitlePrefix: 'Карта — ', mapsHl: 'ru',
+    services: ['Металлопластиковые окна','Выездной офис','Двери','Стеклопакеты','Откосы','Жалюзи и рулонные шторы'],
+    footerServices: ['Металлопластиковые окна','Двери','Стеклопакеты','Откосы','Жалюзи и рулонные шторы','Выездной офис'],
+    serviceHrefs: {'Металлопластиковые окна':'plastikovye-okna-harkov','Двери':'plastikovye-dveri-harkov','Стеклопакеты':'steklopakety-harkov','Откосы':'otkosy-na-okna-harkov','Жалюзи и рулонные шторы':'zhalyuzi-i-rulonnye-shtory-harkov','Выездной офис':'okna-i-dveri-harkov#services'}
+  }
+};
+function t(key){ return I18N[currentLang()][key]; }
+
+// Adjacent flex/inline items separated only by CSS `gap` have zero actual
+// whitespace between them in the DOM text stream — plain textContent-style
+// extraction (search snippets, screen readers, copy/paste) runs them
+// together with no separator at all. Interspersing a literal space text
+// node fixes that for any such extraction, while staying fully invisible
+// visually: a whitespace-only text node between flex children is treated
+// as display:none per the flexbox spec, so it adds no visible gap.
+function spaced(nodes){ return nodes.flatMap((n,i)=> i===0 ? [n] : [' ', n]); }
+
 const SERVICE_HREFS = {'Металопластикові вікна':'pvc-windows.html','Двері':'doors.html','Склопакети':'glass-units.html','Відкоси':'window-slopes.html','Жалюзі та рулонні штори':'blinds-and-roller-shades.html','Виїзний офіс':'index.html#services'};
 const SLOT_PHOTOS = {"cut-veka-70":"assets/images/slots/profile-cross-section-veka-70.webp","cut-veka-82":"assets/images/slots/profile-cross-section-veka-82.webp","cut-ultra-60":"assets/images/slots/profile-cross-section-ultra-60.webp","cut-ultra-72":"assets/images/slots/profile-cross-section-ultra-72.webp","cut-wds-ad-76":"assets/images/slots/profile-cross-section-wds-ad-76.webp","cut-wds-md-76":"assets/images/slots/profile-cross-section-wds-md-76.webp","door-0-0-0":"assets/images/slots/door-photo-0-0-0.webp","door-0-0-1":"assets/images/slots/door-photo-0-0-1.webp","door-0-1-0":"assets/images/slots/door-photo-0-1-0.webp","door-0-1-1":"assets/images/slots/door-photo-0-1-1.webp","door-0-2-0":"assets/images/slots/door-photo-0-2-0.webp","door-0-2-1":"assets/images/slots/door-photo-0-2-1.webp","door-0-3-0":"assets/images/slots/door-photo-0-3-0.webp","door-0-3-1":"assets/images/slots/door-photo-0-3-1.webp","dr-hero":"assets/images/slots/doors-hero.webp","door-1-0-0":"assets/images/slots/door-photo-1-0-0.webp","door-1-0-1":"assets/images/slots/door-photo-1-0-1.webp","door-1-1-0":"assets/images/slots/MetaLuxe_M492_outer.png","door-1-1-1":"assets/images/slots/MetaLuxe_M492_internal.png","door-1-2-0":"assets/images/slots/door-photo-1-2-0.webp","door-1-2-1":"assets/images/slots/door-photo-1-2-1.webp","door-1-3-0":"assets/images/slots/door-photo-1-3-0.webp","door-1-3-1":"assets/images/slots/door-photo-1-3-1.webp","door-1-4-0":"assets/images/slots/door-photo-1-4-0.webp","door-1-4-1":"assets/images/slots/door-photo-1-4-1.webp","door-1-5-0":"assets/images/slots/door-photo-1-5-0.webp","door-1-5-1":"assets/images/slots/door-photo-1-5-1.webp","door-1-6-0":"assets/images/slots/door-photo-1-6-0.webp","door-1-6-1":"assets/images/slots/door-photo-1-6-1.webp","door-1-7-0":"assets/images/slots/door-photo-1-7-0.webp","door-1-7-1":"assets/images/slots/door-photo-1-7-1.webp","door-1-8-0":"assets/images/slots/door-photo-1-8-0.webp","door-1-8-1":"assets/images/slots/door-photo-1-8-1.webp","door-1-9-0":"assets/images/slots/door-photo-1-9-0.webp","door-1-9-1":"assets/images/slots/door-photo-1-9-1.webp","door-1-10-0":"assets/images/slots/door-photo-1-10-0.webp","door-1-10-1":"assets/images/slots/door-photo-1-10-1.webp","door-2-0-0":"assets/images/slots/door-photo-2-0-0.webp","door-2-1-0":"assets/images/slots/door-photo-2-1-0.webp","door-2-2-0":"assets/images/slots/door-photo-2-2-0.webp","gu-hero":"assets/images/slots/glass-units-hero.webp","bl-hero":"assets/images/slots/jalusie-1.jpg","roll-r01":"assets/images/slots/roller-shade-01.webp","roll-r02":"assets/images/slots/roller-shade-02.webp","roll-r03":"assets/images/slots/roller-shade-03.webp","roll-r04":"assets/images/slots/roller-shade-04.webp","roll-r05":"assets/images/slots/roller-shade-05.webp","roll-r06":"assets/images/slots/roller-shade-06.webp","roll-r07":"assets/images/slots/roller-shade-07.webp","roll-r08":"assets/images/slots/roller-shade-08.webp","roll-r09":"assets/images/slots/roller-shade-09.webp","roll-r10":"assets/images/slots/roller-shade-10.webp","roll-r11":"assets/images/slots/roller-shade-11.webp","roll-r12":"assets/images/slots/roller-shade-12.webp","roll-r13":"assets/images/slots/roller-shade-13.webp","roll-r14":"assets/images/slots/roller-shade-14.webp","roll-r15":"assets/images/slots/roller-shade-15.webp","roll-r16":"assets/images/slots/roller-shade-16.webp","roll-r17":"assets/images/slots/roller-shade-17.webp","roll-r18":"assets/images/slots/roller-shade-18.webp","roll-d01":"assets/images/slots/day-night-shade-01.webp","roll-d02":"assets/images/slots/day-night-shade-02.webp","roll-d03":"assets/images/slots/day-night-shade-03.webp","roll-d04":"assets/images/slots/day-night-shade-04.webp","roll-d05":"assets/images/slots/day-night-shade-05.webp","roll-d06":"assets/images/slots/day-night-shade-06.webp","roll-d07":"assets/images/slots/day-night-shade-07.webp","roll-d08":"assets/images/slots/day-night-shade-08.webp","roll-d09":"assets/images/slots/day-night-shade-09.webp","roll-d10":"assets/images/slots/day-night-shade-10.webp","roll-d11":"assets/images/slots/day-night-shade-11.webp","roll-d12":"assets/images/slots/day-night-shade-12.webp","roll-d13":"assets/images/slots/day-night-shade-13.webp","roll-d14":"assets/images/slots/day-night-shade-14.webp","roll-d15":"assets/images/slots/day-night-shade-15.webp","roll-d16":"assets/images/slots/day-night-shade-16.webp","roll-p01":"assets/images/slots/pleated-shade-01.webp","roll-p02":"assets/images/slots/pleated-shade-02.webp","roll-p03":"assets/images/slots/pleated-shade-03.webp","roll-p04":"assets/images/slots/pleated-shade-04.webp","roll-p05":"assets/images/slots/pleated-shade-05.webp","roll-p06":"assets/images/slots/pleated-shade-06.webp","roll-p07":"assets/images/slots/pleated-shade-07.webp","roll-p08":"assets/images/slots/pleated-shade-08.webp","roll-p09":"assets/images/slots/pleated-shade-09.webp","roll-p10":"assets/images/slots/pleated-shade-10.webp","roll-p11":"assets/images/slots/pleated-shade-11.webp","roll-p12":"assets/images/slots/pleated-shade-12.webp","roll-p13":"assets/images/slots/pleated-shade-13.webp","roll-p14":"assets/images/slots/pleated-shade-14.webp","roll-p15":"assets/images/slots/pleated-shade-15.webp","roll-p16":"assets/images/slots/pleated-shade-16.webp","roll-p17":"assets/images/slots/pleated-shade-17.webp","roll-p18":"assets/images/slots/pleated-shade-18.webp","roll-p19":"assets/images/slots/pleated-shade-19.webp","roll-rm01":"assets/images/slots/roman-shade-01.webp","roll-rm02":"assets/images/slots/roman-shade-02.webp","roll-rm03":"assets/images/slots/roman-shade-03.webp","roll-rm04":"assets/images/slots/roman-shade-04.webp","roll-w01":"assets/images/slots/wooden-blind-01.webp","roll-w02":"assets/images/slots/wooden-blind-02.webp","roll-h01":"assets/images/slots/horizontal-blind-01.webp","roll-h02":"assets/images/slots/horizontal-blind-02.webp","roll-h03":"assets/images/slots/horizontal-blind-03.webp","roll-h04":"assets/images/slots/horizontal-blind-04.webp","roll-v01":"assets/images/slots/vertical-blind-01.webp","roll-m01":"assets/images/slots/skylight-blind-01.webp"};
 function slotSrc(id){ return SLOT_PHOTOS[id] || null; }
@@ -37,9 +110,10 @@ function UkraineFlagIcon(){
   );
 }
 function Ticker(){
+  const text = t('tickerText');
   const item = (key) => React.createElement('div',{className:'ticker-item',key},
     React.createElement('img',{src:'assets/images/diia-solid.svg',alt:'Дія'}),
-    React.createElement('span',null,"Працюємо за програмою єВідновлення")
+    React.createElement('span',null,text)
   );
   const items = [...Array(5)].map((_,i)=>item('a'+i)).concat([...Array(5)].map((_,i)=>item('b'+i)));
   return React.createElement('div',{className:'ticker'},
@@ -82,29 +156,38 @@ function Header(){
     document.addEventListener('mousedown', onDoc);
     return ()=>document.removeEventListener('mousedown', onDoc);
   },[]);
-  const services = ['Металопластикові вікна','Виїзний офіс','Двері','Склопакети','Відкоси','Жалюзі та рулонні штори'];
+  const lg = currentLang();
+  const d = I18N[lg];
+  const services = d.services;
+  const homeHref = lg==='ru' ? 'okna-i-dveri-harkov' : 'index.html';
+  const warrantyHref = lg==='ru' ? 'okna-i-dveri-harkov#standards-section' : 'index.html#standards-section';
+  const altUrl = typeof document!=='undefined' ? document.documentElement.dataset.altUrl : null;
   const chevron = React.createElement('svg',{width:12,height:12,viewBox:'0 0 12 12',fill:'none','aria-hidden':true},
     React.createElement('path',{d:'M2 4.25 6 8.25l4-4',stroke:'currentColor',strokeWidth:1.6,strokeLinecap:'square'})
   );
+  const langSwitch = altUrl ? React.createElement('a',{className:'lang-switch',href:altUrl},d.switchTo) : null;
   return React.createElement(React.Fragment,null,
     React.createElement('div',{ref:wrapRef,className:'header-wrap'+(sticky?' sticky':'')+(entering?' entering':'')},
     React.createElement('header',{className:'header',id:'site-header'},
       React.createElement('div',{className:'header-left'},
-        React.createElement('a',{className:'logo',href:'index.html'},'ВІКНА-ОБРІЙ'),
+        React.createElement('a',{className:'logo',href:homeHref},'ВІКНА-ОБРІЙ'),
         React.createElement('div',{className:'location'},
           React.createElement(Icon,{name:'map-pin',size:19,color:'var(--gray-400)'}),
-          React.createElement('span',null,'м. Харків, бульвар Дмитра Антоновича 2')
+          React.createElement('span',null,d.location)
         )
       ),
       React.createElement('nav',{className:'nav'},
-        React.createElement('a',{href:'index.html'},'Головна'),
-        React.createElement('div',{className:'nav-drop',ref:dropRef},
-          React.createElement('button',{className:'nav-svc'+(svcOpen?' open':''),'aria-expanded':svcOpen,onClick:()=>setSvcOpen(!svcOpen)},'Наші Послуги',chevron),
-          svcOpen ? React.createElement('div',{className:'nav-menu'},
-            services.map(s => React.createElement('a',{href:SERVICE_HREFS[s]||'#',key:s,onClick:()=>setSvcOpen(false)},s))
-          ) : null
-        ),
-        React.createElement('a',{href:'index.html#standards-section'},'Гарантії')
+        ...spaced([
+          React.createElement('a',{key:'home',href:homeHref},d.navHome),
+          React.createElement('div',{key:'svc',className:'nav-drop',ref:dropRef},
+            React.createElement('button',{className:'nav-svc'+(svcOpen?' open':''),'aria-expanded':svcOpen,onClick:()=>setSvcOpen(!svcOpen)},d.navServices,chevron),
+            svcOpen ? React.createElement('div',{className:'nav-menu'},
+              spaced(services.map(s => React.createElement('a',{href:d.serviceHrefs[s]||'#',key:s,onClick:()=>setSvcOpen(false)},s)))
+            ) : null
+          ),
+          React.createElement('a',{key:'warranty',href:warrantyHref},d.navWarranty),
+          ...(langSwitch ? [langSwitch] : [])
+        ])
       ),
       React.createElement('div',{className:'header-right'},
         React.createElement('div',{className:'socials'},
@@ -112,9 +195,9 @@ function Header(){
           React.createElement('a',{href:'https://www.facebook.com/share/1CsLXBLn8r/',target:'_blank',rel:'noopener','aria-label':'Facebook'}, React.createElement(FacebookIcon)),
           React.createElement('a',{href:'https://x.com/viknaobriy',target:'_blank',rel:'noopener','aria-label':'Twitter'}, React.createElement(TwitterIcon))
         ),
-        React.createElement(Button,{variant:'secondary',size:'md',icon:'phone',iconPosition:'left',onClick:openQuote},"Зв'язатись з нами")
+        React.createElement(Button,{variant:'secondary',size:'md',icon:'phone',iconPosition:'left',onClick:openQuote},d.contactCta)
       ),
-      React.createElement('button',{className:'burger'+(open?' open':''),'aria-label':'Меню',onClick:()=>setOpen(!open)},
+      React.createElement('button',{className:'burger'+(open?' open':''),'aria-label':d.burgerLabel,onClick:()=>setOpen(!open)},
         React.createElement('span'),React.createElement('span'),React.createElement('span')
       )
     ),
@@ -122,15 +205,18 @@ function Header(){
       React.createElement('div',{className:'mobile-menu-inner'},
         React.createElement('div',{className:'mobile-location'},
           React.createElement(Icon,{name:'map-pin',size:17,color:'var(--gray-400)'}),
-          React.createElement('span',null,'м. Харків, бульвар Дмитра Антоновича 2')
+          React.createElement('span',null,d.location)
         ),
         React.createElement('nav',{className:'mobile-nav'},
-          React.createElement('a',{href:'index.html',onClick:()=>setOpen(false)},'Головна'),
-          React.createElement('button',{className:'mobile-svc'+(mSvcOpen?' open':''),'aria-expanded':mSvcOpen,onClick:()=>setMSvcOpen(!mSvcOpen)},'Наші Послуги',chevron),
-          mSvcOpen ? React.createElement('div',{className:'mobile-sub'},
-            services.map(s => React.createElement('a',{href:SERVICE_HREFS[s]||'#',key:s,onClick:()=>{setOpen(false);setMSvcOpen(false);}},s))
-          ) : null,
-          React.createElement('a',{href:'index.html#standards-section',onClick:()=>setOpen(false)},'Гарантії')
+          ...spaced([
+            React.createElement('a',{key:'home',href:homeHref,onClick:()=>setOpen(false)},d.navHome),
+            React.createElement('button',{key:'svc',className:'mobile-svc'+(mSvcOpen?' open':''),'aria-expanded':mSvcOpen,onClick:()=>setMSvcOpen(!mSvcOpen)},d.navServices,chevron),
+            ...(mSvcOpen ? [React.createElement('div',{key:'sub',className:'mobile-sub'},
+              spaced(services.map(s => React.createElement('a',{href:d.serviceHrefs[s]||'#',key:s,onClick:()=>{setOpen(false);setMSvcOpen(false);}},s)))
+            )] : []),
+            React.createElement('a',{key:'warranty',href:warrantyHref,onClick:()=>setOpen(false)},d.navWarranty),
+            ...(altUrl ? [React.createElement('a',{key:'switch',href:altUrl,onClick:()=>setOpen(false)},d.switchTo)] : [])
+          ])
         ),
         React.createElement('div',{className:'mobile-socials'},
           React.createElement('a',{href:'https://www.instagram.com/vikna_obriy?igsh=bXNrNzM2Ym9vc29q&utm_source=ig_contact_invite',target:'_blank',rel:'noopener','aria-label':'Instagram'}, React.createElement(InstagramIcon)),
@@ -138,7 +224,7 @@ function Header(){
           React.createElement('a',{href:'https://x.com/viknaobriy',target:'_blank',rel:'noopener','aria-label':'Twitter'}, React.createElement(TwitterIcon))
         ),
         React.createElement('div',{className:'mobile-cta'},
-          React.createElement(Button,{variant:'secondary',size:'md',icon:'phone',iconPosition:'left',onClick:openQuote},"Зв'язатись з нами")
+          React.createElement(Button,{variant:'secondary',size:'md',icon:'phone',iconPosition:'left',onClick:openQuote},d.contactCta)
         )
       )
     )
@@ -207,14 +293,25 @@ function phMask(c){
   return c.groups.map(n=>'X'.repeat(n)).join(' ');
 }
 
-const services = [
-  {label:'Металопластикові вікна'},
-  {label:'ВИЇЗНИЙ ОФІС',accent:true},
-  {label:'Двері'},
-  {label:'Склопакети'},
-  {label:'Відкоси'},
-  {label:'Жалюзі та рулонні штори'}
-];
+const SERVICES_PICKER = {
+  uk: [
+    {label:'Металопластикові вікна'},
+    {label:'ВИЇЗНИЙ ОФІС',accent:true},
+    {label:'Двері'},
+    {label:'Склопакети'},
+    {label:'Відкоси'},
+    {label:'Жалюзі та рулонні штори'}
+  ],
+  ru: [
+    {label:'Металлопластиковые окна'},
+    {label:'ВЫЕЗДНОЙ ОФИС',accent:true},
+    {label:'Двери'},
+    {label:'Стеклопакеты'},
+    {label:'Откосы'},
+    {label:'Жалюзи и рулонные шторы'}
+  ]
+};
+const services = SERVICES_PICKER.uk;
 
 
 function DropMenu({cls,children}){
@@ -251,6 +348,9 @@ function Checkbox({checked,onChange,children}){
 }
 
 function QuoteForm({heading,lede,cta,onClose}){
+  const lg = currentLang();
+  const d = I18N[lg];
+  const pickerServices = SERVICES_PICKER[lg];
   const [sent,setSent] = React.useState(false);
   const [name,setName] = React.useState('');
   const [phone,setPhone] = React.useState('');
@@ -272,9 +372,9 @@ function QuoteForm({heading,lede,cta,onClose}){
   };
   async function submit(){
     const errs = {};
-    if(!nameOk) errs.name = "Вкажіть ім'я";
-    if(!phoneOk) errs.phone = 'Введіть ' + country.len + ' цифр номера';
-    if(!serviceOk) errs.service = 'Оберіть послугу';
+    if(!nameOk) errs.name = d.errorName;
+    if(!phoneOk) errs.phone = d.errorPhoneUnit + country.len + d.errorPhoneSuffix;
+    if(!serviceOk) errs.service = d.errorService;
     setErrors(errs);
     if(Object.keys(errs).length > 0) return;
     setSubmitError('');
@@ -293,7 +393,7 @@ function QuoteForm({heading,lede,cta,onClose}){
       if(!res.ok) throw new Error('submit-lead failed: ' + res.status);
       setSent(true);
     }catch(e){
-      setSubmitError('Не вдалося надіслати заявку. Спробуйте ще раз або зателефонуйте нам');
+      setSubmitError(d.submitErrorMsg);
     }finally{
       setSending(false);
     }
@@ -301,20 +401,20 @@ function QuoteForm({heading,lede,cta,onClose}){
   const star = (ok) => ok ? null : React.createElement('i',null,'*');
   if(sent) return React.createElement('div',{className:'modal-success'},
     React.createElement('div',{className:'tick'}, React.createElement(Icon,{name:'check',size:26,color:'var(--color-primary)'})),
-    React.createElement('h2',null,'Дякуємо за звернення'),
+    React.createElement('h2',null,d.successTitle),
     React.createElement('p',null,'Ваша заявка успішно надіслана. Ми зв\u2019яжемося з вами протягом 24 годин'),
-    React.createElement('p',{className:'sign'},'З любов\u2019ю, ЕКІПАЖ')
+    React.createElement('p',{className:'sign'},d.successSign)
   );
   return React.createElement('div',null,
-    React.createElement('h2',null,heading||'Заповніть заявку на прорахунок'),
-    React.createElement('p',{className:'lede'},lede||'Усі поля обов\u2019язкові. Зв\u2019яжемося протягом 24 годин, безкоштовно прорахуємо вартість і проконсультуємо'),
+    React.createElement('h2',null,heading||d.formHeadingDefault),
+    React.createElement('p',{className:'lede'},lede||d.formLedeDefault),
     React.createElement('div',{className:'field'+(err.name?' err':'')},
-      React.createElement('label',null,"Ім'я",star(nameOk)),
-      React.createElement('input',{type:'text',placeholder:'Олександр',autoComplete:'name',value:name,onChange:e=>setName(e.target.value.replace(/[0-9]/g,''))}),
+      React.createElement('label',null,d.fieldName,star(nameOk)),
+      React.createElement('input',{type:'text',placeholder:d.namePlaceholder,autoComplete:'name',value:name,onChange:e=>setName(e.target.value.replace(/[0-9]/g,''))}),
       err.name ? React.createElement('span',{className:'msg'},err.name) : null
     ),
     React.createElement('div',{className:'field'+(err.phone?' err':'')},
-      React.createElement('label',null,'Телефон',star(phoneOk)),
+      React.createElement('label',null,d.fieldPhone,star(phoneOk)),
       React.createElement('div',{className:'drop'},
         React.createElement('div',{className:'phone-row'},
           React.createElement('button',{type:'button',className:'cc-btn',onClick:()=>{setCcOpen(!ccOpen);setSvcOpen(false);}},
@@ -337,23 +437,23 @@ function QuoteForm({heading,lede,cta,onClose}){
       err.phone ? React.createElement('span',{className:'msg'},err.phone) : null
     ),
     React.createElement('div',{className:'field'+(err.service?' err':'')},
-      React.createElement('label',null,'Послуга',star(serviceOk)),
+      React.createElement('label',null,d.fieldService,star(serviceOk)),
       React.createElement('div',{className:'drop'},
         React.createElement('button',{type:'button',className:'picker-btn'+(service?'':' placeholder'),onClick:()=>{setSvcOpen(!svcOpen);setCcOpen(false);}},
-          React.createElement('span',null,service||'Обрати послугу'),
+          React.createElement('span',null,service||d.serviceChoose),
           React.createElement(Icon,{name:'chevron-down-thin',size:16,color:'var(--gray-500)'})
         ),
         svcOpen ? React.createElement(DropMenu,{cls:'svc'},
-          services.map(s=>React.createElement('button',{type:'button',key:s.label,className:s.accent?'accent':'',onClick:()=>{setService(s.label);setSvcOpen(false);}},s.label))
+          pickerServices.map(s=>React.createElement('button',{type:'button',key:s.label,className:s.accent?'accent':'',onClick:()=>{setService(s.label);setSvcOpen(false);}},s.label))
         ) : null
       ),
       err.service ? React.createElement('span',{className:'msg'},err.service) : null
     ),
-    React.createElement(Checkbox,{checked:agreed,onChange:setAgreed},"Погоджуюсь з обробкою персональних даних"),
+    React.createElement(Checkbox,{checked:agreed,onChange:setAgreed},d.checkboxLabel),
     React.createElement('div',{className:'modal-submit'},
       submitError ? React.createElement('p',{className:'submit-error'},submitError) : null,
       React.createElement(Button,{variant:'secondary',size:'lg',icon:sending?null:'arrow-right',iconPosition:'right',disabled:sending||!agreed,onClick:submit},
-        sending ? React.createElement(React.Fragment,null, React.createElement('span',{className:'btn-spinner','aria-hidden':'true'}), 'Надсилаємо…') : (cta||'Відправити заявку')
+        sending ? React.createElement(React.Fragment,null, React.createElement('span',{className:'btn-spinner','aria-hidden':'true'}), d.sendingLabel) : (cta||d.ctaDefault)
       )
     )
   );
@@ -384,7 +484,7 @@ function QuoteModal(){
   if(!open) return null;
   return React.createElement('div',{className:'modal-backdrop'+(closing?' out':''),onClick:(e)=>{ if(e.target===e.currentTarget) close(); }},
     React.createElement('div',{className:'modal',role:'dialog','aria-modal':'true'},
-      React.createElement('button',{className:'modal-close','aria-label':'Закрити',onClick:close}, React.createElement(Icon,{name:'x',size:18,color:'var(--color-ink)'})),
+      React.createElement('button',{className:'modal-close','aria-label':t('modalClose'),onClick:close}, React.createElement(Icon,{name:'x',size:18,color:'var(--color-ink)'})),
       React.createElement(QuoteForm,{key:seq})
     )
   );
@@ -394,25 +494,31 @@ function QuoteModal(){
 const MAP_ADDR = 'Харків, бульвар Дмитра Антоновича, 2';
 function MapBlock(){
   const q = encodeURIComponent(MAP_ADDR);
+  const hl = t('mapsHl');
   return React.createElement('section',{className:'mapblock',id:'map-section','data-screen-label':'Карта'},
-    React.createElement('iframe',{title:'Мапа — '+MAP_ADDR,src:'https://www.google.com/maps?q='+q+'&hl=uk&z=16&output=embed',loading:'lazy',referrerPolicy:'no-referrer-when-downgrade',allowFullScreen:true})
+    React.createElement('iframe',{title:t('mapTitlePrefix')+MAP_ADDR,src:'https://www.google.com/maps?q='+q+'&hl='+hl+'&z=16&output=embed',loading:'lazy',referrerPolicy:'no-referrer-when-downgrade',allowFullScreen:true})
   );
 }
 
 const FOOTER_SERVICES = ['Металопластикові вікна','Двері','Склопакети','Відкоси','Жалюзі та рулонні штори','Виїзний офіс'];
 
 function Footer(){
+  const d = I18N[currentLang()];
+  const isRu = currentLang()==='ru';
+  // Privacy policy stays UA-only by design (not a commercial/SEO page) —
+  // every footer, including RU ones, links to the one existing UA page.
+  const privacyHref = 'privacy-policy.html';
   return React.createElement('footer',{className:'footer',id:'site-footer','data-screen-label':'Футер'},
     React.createElement('div',{className:'footer-inner'},
       React.createElement('div',{className:'footer-grid'},
         React.createElement('div',{className:'f-brand'},
           React.createElement('p',{className:'f-brand-name'},
-            React.createElement('em',null,'Магазин'),
+            React.createElement('em',null,d.brandLabel),
             React.createElement('b',null,'ВІКНА-ОБРІЙ')
           ),
-          React.createElement('p',{className:'f-note'},'Металопластикові та алюмінієві конструкції під розмір вашого проєму. Виготовлення, доставка й монтаж по Харкову та області'),
+          React.createElement('p',{className:'f-note'},d.brandNote),
           React.createElement('div',{className:'f-mfr'},
-            React.createElement('em',null,'виробник'),
+            React.createElement('em',null,d.mfrLabel),
             React.createElement('img',{src:'assets/images/ekipazh-logo.svg',alt:'ЕКІПАЖ'})
           ),
           React.createElement('div',{className:'f-socials'},
@@ -422,32 +528,36 @@ function Footer(){
           )
         ),
         React.createElement('div',{className:'f-col'},
-          React.createElement('h3',null,'Послуги'),
+          React.createElement('h3',null,d.servicesColTitle),
           React.createElement('div',{className:'f-list'},
-            FOOTER_SERVICES.map(s=>React.createElement('a',{key:s,href:SERVICE_HREFS[s]||'#services'},s))
+            spaced(d.footerServices.map(s=>React.createElement('a',{key:s,href:d.serviceHrefs[s]||(isRu?'okna-i-dveri-harkov#services':'index.html#services')},s)))
           )
         ),
         React.createElement('div',{className:'f-col'},
-          React.createElement('h3',null,'Контакти'),
+          React.createElement('h3',null,d.contactsColTitle),
           React.createElement('div',{className:'f-list'},
-            PHONES.map(p=>React.createElement('a',{key:p,href:'tel:+38'+p.replace(/\s/g,'')},p)),
-            React.createElement('a',{href:'mailto:vikna-obriy@outlook.com'},'vikna-obriy@outlook.com'),
-            React.createElement('a',{href:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(MAP_ADDR),target:'_blank',rel:'noopener'},'м. Харків, бульвар', React.createElement('br'),'Дмитра Антоновича, 2')
+            spaced([
+              ...PHONES.map(p=>React.createElement('a',{key:p,href:'tel:+38'+p.replace(/\s/g,'')},p)),
+              React.createElement('a',{key:'email',href:'mailto:vikna-obriy@outlook.com'},'vikna-obriy@outlook.com'),
+              React.createElement('a',{key:'addr',href:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(MAP_ADDR),target:'_blank',rel:'noopener'},d.addr1, React.createElement('br'),d.addr2)
+            ])
           )
         ),
         React.createElement('div',{className:'f-col'},
-          React.createElement('h3',null,'Графік роботи'),
+          React.createElement('h3',null,d.hoursColTitle),
           React.createElement('div',{className:'f-hours'},
-            React.createElement('div',{className:'f-hours-row'},React.createElement('span',null,'Пн–Пт'),React.createElement('b',null,'09:00–18:00')),
-            React.createElement('div',{className:'f-hours-row'},React.createElement('span',null,'Сб'),React.createElement('b',null,'09:00–14:00')),
-            React.createElement('div',{className:'f-hours-row'},React.createElement('span',null,'Нд'),React.createElement('b',null,'вихідний')),
-            React.createElement('p',{className:'f-hours-note'},'Перерва з 13:00–14:00')
+            ...spaced([
+              React.createElement('div',{key:'wd',className:'f-hours-row'}, ...spaced([React.createElement('span',{key:'l'},d.weekday),React.createElement('b',{key:'v'},'09:00–18:00')])),
+              React.createElement('div',{key:'sa',className:'f-hours-row'}, ...spaced([React.createElement('span',{key:'l'},d.saturday),React.createElement('b',{key:'v'},'09:00–14:00')])),
+              React.createElement('div',{key:'su',className:'f-hours-row'}, ...spaced([React.createElement('span',{key:'l'},d.sunday),React.createElement('b',{key:'v'},d.dayOff)])),
+              React.createElement('p',{key:'note',className:'f-hours-note'},d.hoursNote)
+            ])
           )
         )
       ),
       React.createElement('div',{className:'f-bottom'},
-        React.createElement('p',null,'© 2026 ВІКНА-ОБРІЙ. Всі права захищені'),
-        React.createElement('a',{href:'privacy-policy.html'},'Політика конфіденційності')
+        React.createElement('p',null,d.copyright),
+        React.createElement('a',{href:privacyHref},d.privacyLink)
       )
     )
   );
@@ -476,11 +586,11 @@ function Lightbox({items,index,onClose,onPrev,onNext}){
     React.createElement('path',{d:dir==='left'?'M12.5 3.5 6 10l6.5 6.5':'M7.5 3.5 14 10l-6.5 6.5',stroke:'currentColor',strokeWidth:1.8,strokeLinecap:'square'})
   );
   return React.createElement('div',{className:'lightbox'+(shown?' in':''),onClick:onClose,role:'dialog','aria-modal':'true'},
-    React.createElement('button',{className:'lb-btn close','aria-label':'Закрити',onClick:onClose},
+    React.createElement('button',{className:'lb-btn close','aria-label':t('lbClose'),onClick:onClose},
       React.createElement('svg',{width:18,height:18,viewBox:'0 0 18 18',fill:'none'},React.createElement('path',{d:'M2 2l14 14M16 2 2 16',stroke:'currentColor',strokeWidth:1.8}))
     ),
-    React.createElement('button',{className:'lb-btn prev','aria-label':'Назад',onClick:(e)=>{e.stopPropagation();onPrev();}}, arrow('left')),
-    React.createElement('button',{className:'lb-btn next','aria-label':'Вперед',onClick:(e)=>{e.stopPropagation();onNext();}}, arrow('right')),
+    React.createElement('button',{className:'lb-btn prev','aria-label':t('lbPrev'),onClick:(e)=>{e.stopPropagation();onPrev();}}, arrow('left')),
+    React.createElement('button',{className:'lb-btn next','aria-label':t('lbNext'),onClick:(e)=>{e.stopPropagation();onNext();}}, arrow('right')),
     React.createElement('img',{src:it.src,alt:it.title,onClick:(e)=>e.stopPropagation()}),
     React.createElement('p',{className:'lb-caption',onClick:(e)=>e.stopPropagation()},it.title),
     React.createElement('div',{className:'lb-count'}, (index+1)+' / '+items.length)
@@ -488,16 +598,29 @@ function Lightbox({items,index,onClose,onPrev,onNext}){
 }
 
 function Certificates(){
+  const isRu = currentLang()==='ru';
+  const CERT_TITLES_RU = {
+    'ift Rosenheim — зовнішні двері WDS 76 AD/MD, WDS SL 76':'ift Rosenheim — входные двери WDS 76 AD/MD, WDS SL 76',
+    'ift Rosenheim — вікна WDS 7s, WDS 8s':'ift Rosenheim — окна WDS 7s, WDS 8s',
+    'ift Rosenheim — вікна Alumil S77, S700, S67':'ift Rosenheim — окна Alumil S77, S700, S67',
+    'ift Rosenheim — фурнітура Winkhaus activPilot, proPilot':'ift Rosenheim — фурнитура Winkhaus activPilot, proPilot',
+    'Сертифікат відповідності — скло багатошарове (ламіноване)':'Сертификат соответствия — стекло многослойное (ламинированное)',
+    'Скло захисне ударотривке ЕК-СЗУ-Р4А/9,5 — ДСТУ EN 356:2005':'Стекло защитное ударостойкое ЕК-СЗУ-Р4А/9,5 — ДСТУ EN 356:2005',
+    'ISO 9001:2015 — фурнітура AXOR':'ISO 9001:2015 — фурнитура AXOR',
+    'Алюмінієві двері зовнішні та внутрішні — ДСТУ EN 14351-1:2020':'Алюминиевые двери входные и внутренние — ДСТУ EN 14351-1:2020',
+    'Алюмінієві вікна, балконні двері та фасадні конструкції':'Алюминиевые окна, балконные двери и фасадные конструкции'
+  };
+  const tr = (s) => isRu ? (CERT_TITLES_RU[s]||s) : s;
   const items = [
-    {src:'assets/images/certificate-ift-rosenheim-wds-76-doors.jpg',title:'ift Rosenheim — зовнішні двері WDS 76 AD/MD, WDS SL 76'},
-    {src:'assets/images/certificate-ift-rosenheim-wds-7s-8s-windows.jpg',title:'ift Rosenheim — вікна WDS 7s, WDS 8s'},
-    {src:'assets/images/certificate-ift-rosenheim-alumil-s77-s700-s67.jpg',title:'ift Rosenheim — вікна Alumil S77, S700, S67'},
-    {src:'assets/images/certificate-ift-winkhaus-hardware.jpg',title:'ift Rosenheim — фурнітура Winkhaus activPilot, proPilot'},
-    {src:'assets/images/certificate-laminated-glass-conformity.jpg',title:'Сертифікат відповідності — скло багатошарове (ламіноване)'},
-    {src:'assets/images/certificate-impact-resistant-glass-en356.jpg',title:'Скло захисне ударотривке ЕК-СЗУ-Р4А/9,5 — ДСТУ EN 356:2005'},
-    {src:'assets/images/certificate-iso-9001-axor-hardware.jpg',title:'ISO 9001:2015 — фурнітура AXOR'},
-    {src:'assets/images/certificate-aluminium-doors-en14351.jpg',title:'Алюмінієві двері зовнішні та внутрішні — ДСТУ EN 14351-1:2020'},
-    {src:'assets/images/certificate-aluminium-windows-facades.jpg',title:'Алюмінієві вікна, балконні двері та фасадні конструкції'}
+    {src:'assets/images/certificate-ift-rosenheim-wds-76-doors.jpg',title:tr('ift Rosenheim — зовнішні двері WDS 76 AD/MD, WDS SL 76')},
+    {src:'assets/images/certificate-ift-rosenheim-wds-7s-8s-windows.jpg',title:tr('ift Rosenheim — вікна WDS 7s, WDS 8s')},
+    {src:'assets/images/certificate-ift-rosenheim-alumil-s77-s700-s67.jpg',title:tr('ift Rosenheim — вікна Alumil S77, S700, S67')},
+    {src:'assets/images/certificate-ift-winkhaus-hardware.jpg',title:tr('ift Rosenheim — фурнітура Winkhaus activPilot, proPilot')},
+    {src:'assets/images/certificate-laminated-glass-conformity.jpg',title:tr('Сертифікат відповідності — скло багатошарове (ламіноване)')},
+    {src:'assets/images/certificate-impact-resistant-glass-en356.jpg',title:tr('Скло захисне ударотривке ЕК-СЗУ-Р4А/9,5 — ДСТУ EN 356:2005')},
+    {src:'assets/images/certificate-iso-9001-axor-hardware.jpg',title:tr('ISO 9001:2015 — фурнітура AXOR')},
+    {src:'assets/images/certificate-aluminium-doors-en14351.jpg',title:tr('Алюмінієві двері зовнішні та внутрішні — ДСТУ EN 14351-1:2020')},
+    {src:'assets/images/certificate-aluminium-windows-facades.jpg',title:tr('Алюмінієві вікна, балконні двері та фасадні конструкції')}
   ];
   const [open,setOpen] = React.useState(-1);
   const railRef = React.useRef(null);
@@ -514,18 +637,18 @@ function Certificates(){
   return React.createElement('section',{className:'certs',id:'certificates-section','data-screen-label':'Сертифікати'},
     React.createElement('div',{className:'certs-inner'},
       React.createElement('div',{className:'certs-head'},
-        React.createElement('h2',null,'Сертифікати якості')
+        React.createElement('h2',null,t('certsHeading'))
       ),
       React.createElement('div',{className:'certs-railwrap'},
-        React.createElement('button',{className:'certs-arrow prev','aria-label':'Назад',disabled:edge.start,onClick:()=>scrollBy(-1)}, chev('left')),
+        React.createElement('button',{className:'certs-arrow prev','aria-label':t('lbPrev'),disabled:edge.start,onClick:()=>scrollBy(-1)}, chev('left')),
         React.createElement('div',{className:'certs-rail',ref:railRef,onScroll:sync},
           items.map((it,i)=>React.createElement('button',{className:'cert-thumb',key:it.src,onClick:()=>setOpen(i),'aria-label':it.title},
             React.createElement('img',{src:it.src,alt:it.title,loading:'lazy'})
           ))
         ),
-        React.createElement('button',{className:'certs-arrow next','aria-label':'Вперед',disabled:edge.end,onClick:()=>scrollBy(1)}, chev('right'))
+        React.createElement('button',{className:'certs-arrow next','aria-label':t('lbNext'),disabled:edge.end,onClick:()=>scrollBy(1)}, chev('right'))
       ),
-      React.createElement('p',{className:'certs-hint'},'Натисніть на сертифікат, щоб відкрити на повний екран')
+      React.createElement('p',{className:'certs-hint'},t('certsHint'))
     ),
     open >= 0 ? React.createElement(Lightbox,{items,index:open,onClose:()=>setOpen(-1),onPrev:()=>setOpen((open-1+items.length)%items.length),onNext:()=>setOpen((open+1)%items.length)}) : null
   );
