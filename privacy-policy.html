@@ -54,6 +54,15 @@
 .legal-section,.legal-close{margin-top:32px;padding-top:32px}
 }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18469631641"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18469631641', { 'allow_enhanced_conversions': true });
+</script>
 </head>
 <body>
 <div id="root"></div>
@@ -139,7 +148,9 @@ function PrivacyBody(){
           'постачальникам технічних та інформаційних сервісів',
           'за згодою користувача',
           'у випадках, передбачених чинним законодавством України.'
-        ])
+        ]),
+        P('Для оцінки ефективності реклами сайт використовує сервіс Google Ads (Google Ireland Limited). Після успішної відправки заявки ім’я та номер телефону, вказані у формі, перетворюються на незворотний хеш (SHA-256) безпосередньо у браузері користувача і лише в такому вигляді передаються Google — для зіставлення заявки з рекламним оголошенням. Відкриті (нехешовані) контактні дані Google не передаються.'),
+        P('Ця технологія має назву «розширені конверсії» (enhanced conversions) і застосовується виключно для вимірювання результативності реклами, а не для показу реклами конкретному користувачеві. Відмовитися від неї можна, заблокувавши скрипти Google у налаштуваннях браузера або відповідним розширенням.')
       ),
 
       React.createElement(Section,{num:5,title:'Файли Cookie'},

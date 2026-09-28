@@ -6,6 +6,39 @@ Object.assign(window,{Button,Icon});
 // this only controls which strings the SHARED components (header, footer,
 // quote form) render on that page.
 function currentLang(){ return document.documentElement.lang === 'ru' ? 'ru' : 'uk'; }
+
+// Google tag (gtag.js) events. The tag itself loads in each page's <head>;
+// this only reports what visitors do, so Google Ads can count conversions.
+// Safe no-op if the tag is blocked or has not loaded yet.
+function track(name, params){
+  try{
+    if(typeof window.gtag === 'function') window.gtag('event', name, Object.assign({
+      page_name: document.documentElement.dataset.page || document.title
+    }, params || {}));
+  }catch(e){}
+}
+// Enhanced conversions: the name and phone the visitor typed are handed to the
+// Google tag, which normalizes and hashes them locally (SHA-256) before they
+// leave the browser — the raw values are never sent to Google. Only called on a
+// successful submit, right before the generate_lead event. See privacy-policy.
+function setUserData(fullName, phoneE164, countryCode){
+  try{
+    if(typeof window.gtag !== 'function') return;
+    const parts = String(fullName || '').trim().split(/\s+/).filter(Boolean);
+    const address = { country: countryCode || 'UA' };
+    if(parts[0]) address.first_name = parts[0];
+    if(parts.length > 1) address.last_name = parts.slice(1).join(' ');
+    window.gtag('set', 'user_data', { phone_number: phoneE164, address: address });
+  }catch(e){}
+}
+
+// Phone and e-mail clicks are leads too — caught once here for links on any page.
+document.addEventListener('click', function(e){
+  const a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"],a[href^="mailto:"]') : null;
+  if(!a) return;
+  track(a.getAttribute('href').indexOf('tel:') === 0 ? 'contact_phone' : 'contact_email',
+        { link_url: a.getAttribute('href') });
+});
 const I18N = {
   uk: {
     location: 'м. Харків, бульвар Дмитра Антоновича 2',
@@ -391,6 +424,8 @@ function QuoteForm({heading,lede,cta,onClose}){
         })
       });
       if(!res.ok) throw new Error('submit-lead failed: ' + res.status);
+      setUserData(name, country.dial + phone, country.code);
+      track('generate_lead', { service: service, currency: 'UAH', value: 1 });
       setSent(true);
     }catch(e){
       setSubmitError(d.submitErrorMsg);
